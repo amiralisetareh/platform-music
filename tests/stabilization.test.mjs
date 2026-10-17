@@ -28,7 +28,8 @@ test('curated cards and albums open details instead of pretending to be playable
   assert.match(app, /verified tracklist pending/);
   assert.match(app, /openEntity\('playlist', 'Persian Trap'\)/);
   assert.doesNotMatch(app, /playTrack\(\{ title: 'Persian Trap Mix'/);
-  assert.match(html, /Explore mix/);
+  assert.match(html, /Find your next sound/);
+  assert.match(html, /data-go-view="explore"/);
 });
 
 test('saving and removing albums is represented in local and account library state', () => {

@@ -4,32 +4,11 @@
  * replacing app structure or changing playback behavior.
  */
 
-[data-theme="light"] {
-  --bg: #f5f6f9;
-  --bg-grad:
-    radial-gradient(ellipse at 8% 0%, rgba(214, 226, 246, .40) 0%, transparent 35%),
-    radial-gradient(ellipse at 93% 9%, rgba(235, 225, 246, .25) 0%, transparent 30%),
-    linear-gradient(145deg, #f8f9fb 0%, #f1f3f8 52%, #f7f8fb 100%);
-  --ink: #222936;
-  --ink-soft: #4f596b;
-  --muted: #737f91;
-  --muted-light: #929cad;
-  --glass-bg: linear-gradient(145deg, rgba(255,255,255,.58) 0%, rgba(255,255,255,.22) 100%);
-  --glass-bg-strong: linear-gradient(145deg, rgba(255,255,255,.76) 0%, rgba(255,255,255,.42) 100%);
-  --glass-border: 1px solid rgba(255,255,255,.78);
-  --glass-shadow: 0 1px 0 rgba(255,255,255,.92) inset, 0 7px 24px rgba(44,55,75,.055), 0 1px 3px rgba(39,49,70,.035);
-  --glass-shadow-hover: 0 1px 0 rgba(255,255,255,.98) inset, 0 12px 28px rgba(44,55,75,.095), 0 2px 6px rgba(39,49,70,.04);
-  --glass-ink: #414c5e;
-  --glass-accent: #303949;
-  --glass-active: linear-gradient(145deg, rgba(255,255,255,.90) 0%, rgba(233,238,247,.66) 100%);
-}
+
 
 /* Global typography and interaction states */
-html, body {
-  color: var(--ink);
-  text-rendering: optimizeLegibility;
-}
-button, a, input { -webkit-tap-highlight-color: transparent; }
+
+
 :where(button, a, input, [tabindex]):focus-visible {
   outline: 2px solid rgba(76, 96, 132, .78);
   outline-offset: 3px;

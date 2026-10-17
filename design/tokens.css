@@ -1,0 +1,104 @@
+/*
+ * STARMUSICS design tokens — Phase 6
+ * This is the single source of truth for the light clear-glass design system.
+ * Component styles keep their legacy aliases while new work uses the --sm-* tokens.
+ */
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* Brand and surfaces */
+  --sm-canvas: #f5f6f9;
+  --sm-canvas-gradient:
+    radial-gradient(ellipse at 8% 0%, rgba(214, 226, 246, .40) 0%, transparent 35%),
+    radial-gradient(ellipse at 93% 9%, rgba(235, 225, 246, .25) 0%, transparent 30%),
+    linear-gradient(145deg, #f8f9fb 0%, #f1f3f8 52%, #f7f8fb 100%);
+  --sm-surface: #ffffff;
+  --sm-surface-soft: #f7f8fb;
+  --sm-surface-glass: linear-gradient(145deg, rgba(255,255,255,.58) 0%, rgba(255,255,255,.22) 100%);
+  --sm-surface-glass-strong: linear-gradient(145deg, rgba(255,255,255,.76) 0%, rgba(255,255,255,.42) 100%);
+  --sm-surface-active: linear-gradient(145deg, rgba(255,255,255,.90) 0%, rgba(233,238,247,.66) 100%);
+  --sm-border: rgba(96, 111, 132, .18);
+  --sm-border-glass: rgba(255,255,255,.78);
+
+  /* Text and semantic accents */
+  --sm-text: #222936;
+  --sm-text-strong: #202633;
+  --sm-text-secondary: #4f596b;
+  --sm-text-muted: #626d7d;
+  --sm-text-subtle: #657185;
+  --sm-accent: #303949;
+  --sm-focus: #536b96;
+  --sm-like: #e11d48;
+  --sm-success: #236745;
+  --sm-warning: #795a18;
+  --sm-danger: #a12f3d;
+
+  /* Typography: content should remain readable, labels may be smaller only when decorative. */
+  --sm-font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --sm-text-xs: 0.75rem;
+  --sm-text-sm: 0.8125rem;
+  --sm-text-md: 0.875rem;
+  --sm-text-lg: 1rem;
+  --sm-heading-sm: 1.125rem;
+  --sm-heading-md: 1.5rem;
+  --sm-heading-lg: clamp(2rem, 3.4vw, 2.5rem);
+  --sm-line-body: 1.5;
+  --sm-line-heading: 1.15;
+
+  /* 4-point spacing scale */
+  --sm-space-1: 4px;
+  --sm-space-2: 8px;
+  --sm-space-3: 12px;
+  --sm-space-4: 16px;
+  --sm-space-5: 20px;
+  --sm-space-6: 24px;
+  --sm-space-8: 32px;
+  --sm-space-10: 40px;
+  --sm-space-12: 48px;
+
+  /* Geometry and elevation */
+  --sm-radius-sm: 8px;
+  --sm-radius-md: 12px;
+  --sm-radius-lg: 17px;
+  --sm-radius-xl: 24px;
+  --sm-radius-pill: 999px;
+  --sm-glass-blur: blur(26px) saturate(175%);
+  --sm-shadow-soft: 0 18px 48px rgba(43,54,78,.10), inset 0 1px 0 rgba(255,255,255,.68);
+  --sm-shadow-card: 0 8px 26px rgba(35,47,70,.08), inset 0 1px 0 rgba(255,255,255,.44);
+  --sm-shadow-hover: 0 12px 28px rgba(44,55,75,.095), inset 0 1px 0 rgba(255,255,255,.98);
+  --sm-shadow-focus: 0 0 0 3px rgba(83,107,150,.20);
+
+  /* Compatibility aliases for existing component CSS. */
+  --bg: var(--sm-canvas);
+  --bg-grad: var(--sm-canvas-gradient);
+  --surface: rgba(255,255,255,.26);
+  --card: rgba(255,255,255,.30);
+  --ink: var(--sm-text);
+  --ink-soft: var(--sm-text-secondary);
+  --muted: var(--sm-text-muted);
+  --muted-light: var(--sm-text-subtle);
+  --border-subtle: var(--sm-border);
+  --shadow-soft: var(--sm-shadow-soft);
+  --shadow-sm: 0 5px 18px rgba(43,54,78,.08), inset 0 1px 0 rgba(255,255,255,.72);
+  --shadow-card: var(--sm-shadow-card);
+  --shadow-hover: 0 16px 38px rgba(35,47,70,.14), inset 0 1px 0 rgba(255,255,255,.72);
+  --panel-bg: linear-gradient(145deg, rgba(255,255,255,.46), rgba(240,244,251,.19));
+  --player-bg: linear-gradient(180deg, rgba(255,255,255,.50), rgba(233,239,249,.30));
+  --accent: var(--sm-accent);
+  --text: var(--sm-text-strong);
+  --like: var(--sm-like);
+  --glass: rgba(255,255,255,.32);
+  --glass-bg: var(--sm-surface-glass);
+  --glass-bg-strong: var(--sm-surface-glass-strong);
+  --glass-border: 1px solid var(--sm-border-glass);
+  --glass-shadow: 0 1px 0 rgba(255,255,255,.92) inset, 0 7px 24px rgba(44,55,75,.055), 0 1px 3px rgba(39,49,70,.035);
+  --glass-shadow-hover: var(--sm-shadow-hover);
+  --glass-blur: var(--sm-glass-blur);
+  --glass-radius: var(--sm-radius-lg);
+  --glass-radius-pill: var(--sm-radius-pill);
+  --glass-ink: #414c5e;
+  --glass-accent: var(--sm-accent);
+  --glass-active: var(--sm-surface-active);
+  --glass-active-shadow: 0 1px 0 rgba(255,255,255,.96) inset, 0 7px 20px rgba(56,69,95,.11), 0 1px 4px rgba(39,49,70,.04);
+}

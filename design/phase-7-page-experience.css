@@ -1,0 +1,98 @@
+/* STARMUSICS Phase 7 — page hierarchy, contextual guidance, and navigable catalogue details. */
+
+/* Page-level hierarchy: keep the existing light, editorial glass direction. */
+.home-section .section-heading-copy p,
+.home-section .section-title > .muted-label { max-width: 54ch; }
+.home-section .card-row,
+.home-section .artists-row { margin-top: 12px; }
+.home-releases .card-status-note,
+.home-playlists .card-status-note { display: block; line-height: 1.45; }
+.featured-content { max-width: min(640px, 66%); }
+.featured p { max-width: 48ch; line-height: 1.65; }
+.featured-label { opacity: .86; }
+
+/* Contextual sidebar modules are selected by the active route in app.js. */
+.rightbar [hidden] { display: none !important; }
+.sidebar-context-panel { padding: 17px; }
+.sidebar-context-panel .panel-header { margin-bottom: 9px; }
+.sidebar-context-description { color: var(--sm-text-secondary); font-size: 12px; line-height: 1.55; margin: 0 0 12px; }
+.sidebar-context-links { display: grid; gap: 5px; }
+.sidebar-context-link { display: grid; grid-template-columns: 35px minmax(0, 1fr) auto; align-items: center; gap: 9px; min-width: 0; width: 100%; padding: 7px; border: 1px solid transparent; border-radius: 12px; background: transparent; text-align: start; cursor: pointer; color: var(--sm-text-secondary); }
+.sidebar-context-link:hover { background: rgba(255,255,255,.63); border-color: var(--sm-border); }
+.sidebar-context-thumb { width: 35px; height: 35px; border-radius: 9px; background: var(--sm-surface-soft) center/cover no-repeat; box-shadow: 0 3px 10px rgba(35,47,70,.07); }
+.sidebar-context-copy { display: grid; min-width: 0; gap: 2px; }
+.sidebar-context-copy strong { font-size: 12px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sidebar-context-copy small { font-size: 11px; color: var(--sm-text-muted); line-height: 1.35; }
+.sidebar-context-arrow { color: var(--sm-text-muted); font-size: 14px; }
+.sidebar-context-footnote { margin-top: 11px; padding-top: 10px; border-top: 1px solid var(--sm-border); font-size: 11px; line-height: 1.5; color: var(--sm-text-muted); }
+.sidebar-context-action { display: inline-flex; align-items: center; min-height: 36px; margin-top: 11px; padding: 8px 11px; border-radius: 999px; border: 1px solid var(--sm-border); background: rgba(255,255,255,.66); color: var(--sm-text-secondary); font-size: 12px; font-weight: 600; }
+.sidebar-context-action:hover { background: white; box-shadow: var(--sm-shadow-hover); }
+.rightbar .discussion-note { line-height: 1.45; }
+
+/* Proper navigable detail routes: the existing entity template becomes a page instead of a modal. */
+#view-entity { min-height: 100%; }
+#view-entity .entity-page { position: static !important; inset: auto !important; z-index: auto !important; display: block; width: 100%; min-height: 100%; overflow: visible; padding: 0 0 32px; background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
+#view-entity .entity-page[hidden] { display: none !important; }
+#view-entity .entity-detail-backdrop { display: none !important; }
+#view-entity .entity-detail-sheet { display: grid; width: min(100%, 1080px); max-width: 1080px; max-height: none; overflow: visible; margin: 0 auto; padding: clamp(20px, 3vw, 34px); grid-template-columns: minmax(220px, .72fr) minmax(0, 1.28fr); gap: clamp(22px, 3vw, 36px); border: 1px solid var(--sm-border); border-radius: 26px; background: linear-gradient(145deg, rgba(255,255,255,.88), rgba(247,248,251,.72)); box-shadow: var(--sm-shadow-card); backdrop-filter: blur(20px) saturate(135%); -webkit-backdrop-filter: blur(20px) saturate(135%); }
+#view-entity .entity-close { position: static; display: inline-flex; align-items: center; justify-content: center; float: none; width: auto; min-height: 38px; margin: 0 0 17px; padding: 8px 13px; border-radius: 999px; }
+#view-entity .entity-art-column { position: sticky; top: 18px; align-self: start; }
+#view-entity .entity-detail-copy { padding-top: 2px; }
+.entity-breadcrumbs { display: flex; align-items: center; gap: 9px; padding: 2px 3px 17px; color: var(--sm-text-muted); font-size: 12px; }
+.entity-breadcrumbs a { color: var(--sm-text-secondary); text-decoration: none; }
+.entity-breadcrumbs a:hover { text-decoration: underline; }
+.entity-breadcrumbs span:last-child { color: var(--sm-text); font-weight: 600; }
+#view-entity .entity-detail-copy h2 { overflow-wrap: anywhere; }
+#view-entity .entity-related-heading { justify-content: space-between; gap: 14px; }
+#view-entity #btn-copy-entity-link { flex: 0 0 auto; }
+#view-entity .entity-related-card { min-width: 0; }
+#view-entity .entity-track { width: 100%; text-align: start; }
+#view-entity .entity-detail-copy .entity-empty-state { min-height: 110px; }
+
+/* Genre cards communicate actual catalogue coverage without implying that audio is playable. */
+.genre-card-rich { position: relative; display: grid; grid-template-rows: 1fr auto auto; justify-items: start; align-content: stretch; gap: 7px; min-height: 124px; padding: 15px; border: 1px solid var(--sm-border); border-radius: 17px; text-align: start; background: linear-gradient(145deg, rgba(255,255,255,.70), rgba(239,242,248,.44)); box-shadow: var(--sm-shadow-card); color: var(--sm-text); cursor: pointer; transition: transform .18s ease, box-shadow .18s ease, background .18s ease; }
+.genre-card-rich:hover { transform: translateY(-2px); background: rgba(255,255,255,.91); box-shadow: var(--sm-shadow-hover); }
+.genre-card-index { color: var(--sm-text-muted); font-size: 11px; letter-spacing: .08em; }
+.genre-card-rich strong { font-size: 15px; font-weight: 650; letter-spacing: -.02em; }
+.genre-card-count { color: var(--sm-text-muted); font-size: 12px; line-height: 1.4; }
+.genre-card-arrow { position: absolute; top: 13px; inset-inline-end: 14px; color: var(--sm-text-muted); font-size: 15px; }
+.genre-card-rich[data-coverage="empty"] .genre-card-count { color: var(--sm-warning); }
+.genre-card-rich:focus-visible,
+.sidebar-context-link:focus-visible { outline: 2px solid var(--sm-focus); outline-offset: 3px; }
+
+/* Standardize card-art crops while keeping artist portraits circular. */
+.card-cover { aspect-ratio: 1 / 1; background-position: center; background-size: cover; background-color: var(--sm-surface-soft); }
+.card-cover img { width: 100%; height: 100%; object-fit: cover; }
+.saved-album-art, .entity-related-art, .sidebar-context-thumb { background-position: center; background-size: cover; }
+.artwork-placeholder, .card-cover:empty { background: linear-gradient(145deg, #f6f7fa, #e7ebf3); }
+
+@media (min-width: 1081px) {
+  .app.rightbar-empty { grid-template-columns: 72px minmax(0, 1fr) 0; }
+  .app.rightbar-empty .rightbar { display: none; }
+}
+@media (max-width: 1120px) {
+  #view-entity .entity-detail-sheet { grid-template-columns: minmax(190px, .65fr) minmax(0, 1.35fr); }
+  #view-entity .entity-detail-copy h2 { font-size: clamp(29px, 4vw, 42px); }
+}
+@media (max-width: 760px) {
+  .featured-content { max-width: 82%; padding: 27px 23px; }
+  .featured h1 { font-size: clamp(28px, 8vw, 38px); }
+  .home-section .section-heading-copy p { max-width: 100%; }
+  #view-entity .entity-page { padding-bottom: 24px; }
+  #view-entity .entity-detail-sheet { display: block; padding: 18px 16px 24px; border-radius: 22px; }
+  #view-entity .entity-art-column { position: static; padding-top: 0; }
+  #view-entity .entity-hero-art { width: min(68vw, 260px); margin: 0 auto; }
+  #view-entity .entity-art-note { text-align: center; }
+  #view-entity .entity-detail-copy { padding: 10px 0 0; }
+  #view-entity .entity-detail-copy > .eyebrow,
+  #view-entity .entity-detail-copy h2,
+  #view-entity .entity-detail-copy > .page-description { text-align: start; }
+  #view-entity .entity-meta { justify-content: flex-start; }
+  #view-entity .entity-close { margin-bottom: 12px; }
+  .genre-card-rich { min-height: 108px; padding: 12px; }
+  .sidebar-context-panel { display: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .genre-card-rich,
+  .sidebar-context-link { transition: none !important; }
+}

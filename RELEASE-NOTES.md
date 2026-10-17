@@ -1,29 +1,26 @@
-# STARMUSICS v0.9.0 — Consolidated Phases 1–5
+# STARMUSICS v0.9.2 — Phase 7: Home, Navigation & Page Experience
 
-This release consolidates the current product/design roadmap, from the Home/navigation system through shared community persistence and moderation, on top of the earlier catalogue, player, account, and SQLite storage foundations.
+## Implemented
 
-## Included
-
-- **Phase 1 — Home & navigation:** preserved light clear-glass system, desktop icon rail, mobile bottom navigation, Home hierarchy and responsive spacing.
-- **Phase 2 — Search & discovery:** Explore/search, filters, genre discovery and improved artist/album views with explicit metadata-state messaging.
-- **Phase 3 — Listening experience:** player modes, queue controls, focus/keyboard behavior, progressive system media actions and track-card export themes.
-- **Phase 4 — Community & profiles:** searchable/sortable topics, public profiles, activity metrics, achievements, comments and local fallback mode.
-- **Phase 5 — Shared community backend:** SQLite-backed community topics/comments/likes/reports; member-safe public profiles; one-time owner claim; owner topic creation and moderator role management; hide/restore actions; auditable moderation changes; same-origin write requirements and per-process rate limits.
-- Safe local web server that serves an explicit list of frontend assets and blocks `.env`, source folders, test files, project docs, and path traversal.
-- Database storage defaults to a private sibling directory rather than the static web root.
-- Automated tests for API persistence/authorization, community UI integration, CSS structure, audio rights handling, and frontend file-serving boundaries.
+- Corrected a Phase 6 integration gap: the consolidated Phase 6 token stylesheet and final quality/accessibility layer are now loaded by `index.html` in the required order. The Phase 6 design-system audit had failed on the previous folder because these files were present but not linked.
+- Refined the Home hero and section copy to distinguish editorial direction and demo catalogue content from live popularity, recent-release rankings, or guaranteed audio playback.
+- Added a contextual right sidebar that adapts to Home, Explore, Artists, Albums, Genres, Library, personal collections, community pages, and detail pages. Home retains catalogue highlights and compact community content; secondary pages receive relevant links and honest catalogue coverage notes.
+- Improved artist/album lists with linked-track counts drawn from catalogue relationships.
+- Replaced plain genre chips with structured genre cards showing linked-track counts and explicit zero-coverage states.
+- Promoted artist, album, genre, and editorial playlist details to navigable page views using shareable hash routes (`#/artist/<id>`, `#/album/<id>`, `#/genre/<id>`, `#/playlist/<id>`). Browser back/forward follows the app route; detail pages provide breadcrumbs, a return action, related discovery, and a copy-link control.
+- Preserved the white/off-white clear-glass direction, icon rail, mobile bottom navigation, listening controls, personal library, account API, community features, and rights-gated audio resolution.
+- Updated the safe frontend server allowlist to serve the new Phase 7 stylesheet without exposing source, private files, or documentation.
 
 ## Verification
 
-The release is validated using `npm run verify`, including catalogue generation/audit, explicit-rights audio audit, JavaScript syntax checks, CSS structure checks, and the full Node test suite. The ZIP is separately checked for integrity before delivery.
+Reproducible command: `npm run verify`. It completed successfully with 82 automated tests passing. It checks catalogue generation/schema, the audio-rights manifest, design-token contrast and stylesheet order, JavaScript syntax, CSS structure, and automated tests. A separate runtime smoke test returned HTTP 200 for the homepage and Phase 7 stylesheet, and HTTP 404 for `.env` and server-source paths.
 
-## Known limitations and launch blockers
+## Limitations
 
-- Catalogue metadata is still demo-seeded and incomplete: 6 tracks, 12 artists, 4 albums, 5 playlists; four albums lack tracklists and five editorial playlists are empty.
-- The rights-cleared audio manifest contains zero files; 0/6 demo tracks have verified rights for playback. No unverified audio is enabled.
-- Password reset and email verification are not implemented. Owner setup uses a high-entropy one-time secret, which must be removed after the first owner claim.
-- API rate limits and state caches are process-local; this is not a multi-instance deployment design.
-- External hosting, HTTPS reverse proxy, backup/restore, monitoring, privacy/retention policy, content moderation policy, and independent security review remain production tasks.
-- Browser screenshot/device verification remains outstanding; automated tests do not imply visual QA has passed.
+The Phase 6 contrast assertions evaluate canonical base colors and are not a complete WCAG conformance audit of all rendered states.
 
-The consolidated release is suitable for continued development and controlled local testing, not an unrestricted public launch.
+- Browser-based screenshot/manual interaction verification is not claimed as completed in this environment. Direct-link, browser history, and responsive behavior still require a real browser pass.
+- The catalogue remains demo-seeded: 6 tracks, 12 artists, 4 albums and 5 editorial playlists; linked tracklists/playlists remain incomplete and zero tracks have verified distribution rights.
+- The sidebar and genre counts describe catalogue relationships, not streaming popularity, availability, licensing, or verified trend data.
+- Hash routes make detail pages shareable in the current static app, but this is a client-side router, not server-rendered SEO routing.
+- Production authentication recovery, email verification, deployment hardening, and independent security review remain outstanding.

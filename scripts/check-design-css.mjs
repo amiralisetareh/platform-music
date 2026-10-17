@@ -10,6 +10,9 @@ const files = [
   resolve(root, 'design/phase-3-listening-experience.css'),
   resolve(root, 'design/phase-4-community-profile.css'),
   resolve(root, 'design/phase-5-community-backend.css'),
+  resolve(root, 'design/tokens.css'),
+  resolve(root, 'design/phase-6-quality.css'),
+  resolve(root, 'design/phase-7-page-experience.css'),
 ];
 
 function validateCss(path) {

@@ -1,18 +1,20 @@
-# STARMUSICS v0.9.0 — Consolidated Release
+# STARMUSICS v0.9.2 — Phase 7 Page Experience
 
-**Music, with intention.** STARMUSICS is a responsive music-discovery, player, and community prototype built around a light Apple-inspired clear-glass visual system. This release consolidates the work completed across the current five-phase product/design roadmap while retaining the earlier catalogue, account, persistence, and audio-rights foundations.
+**Music, with intention.** STARMUSICS is a responsive music-discovery, player, and community prototype built around a light Apple-inspired clear-glass visual system. This release builds on the consolidated v0.9.0 application and Phase 6 design-system foundation. It adds contextual page sidebars, improved Home hierarchy, richer genre cards, and shareable artist/album/genre/playlist detail routes while preserving the light Apple-inspired clear-glass design.
 
 > **Status:** the interface, local account API, persistent community backend, and automated tests are available. This is not yet a production-ready streaming service: the audio manifest is empty, catalogue metadata remains demo-seeded, email verification/password recovery are not implemented, and deployment hardening and real-browser QA remain required.
 
 ## What is included
 
-### Product/design roadmap — Phases 1–5
+### Product/design roadmap — Phases 1–7
 
 1. **Home and navigation:** clear-glass Home hierarchy, desktop icon rail, mobile bottom navigation, language menu, reduced-motion handling.
 2. **Search and discovery:** search-led Explore, category filters, genre browsing, artist and album detail surfaces, explicit catalogue-status messaging.
 3. **Listening experience:** mini/dock, expanded/full-page player, queue reorder/remove/clear, Media Session integration where supported, and three track-card export themes.
 4. **Discussions and profiles:** searchable topics, comments, likes, profiles, activity metrics, achievements, public member views, and responsive community layouts.
 5. **Shared community backend:** SQLite-backed topics and comments, reactions, reports, one-time owner claim, moderator roles, hide/restore actions, role management, audit records, same-origin write checks, and safe local frontend serving.
+6. **Design consistency and accessibility:** canonical tokens, WCAG AA token contrast calculations, shared focus states, reduced-motion/transparency support, forced-colors support, and standardized touch targets.
+7. **Page experience:** clarified Home hierarchy, contextual right sidebar, genre coverage cards with accurate linked-track counts, and navigable entity detail pages with shareable hash URLs.
 
 ### Earlier technical foundations
 
@@ -58,6 +60,7 @@ Run the complete automated suite and catalogue/audio audits:
 
 ```sh
 npm run verify
+npm run audit:design  # run the design-token, contrast and accessible-state audit separately
 ```
 
 The verification command regenerates the browser catalogue payload, runs catalogue and audio-rights audits, checks JavaScript syntax and CSS structure, and executes automated tests. The safe frontend server also has tests that verify `.env`, source files, database-adjacent paths, and path traversal are not served.
@@ -84,7 +87,7 @@ Lyrics are not included in share cards because verified lyric content has not be
 
 ## Current manual QA still required
 
-Automated tests do not replace a real-browser/device pass. Before release beyond local development, manually verify desktop and mobile breakpoints, keyboard-only flows, Persian RTL and Russian labels, dialogs/focus restoration, actual account cookie behavior on the chosen deployment origin, moderation workflows with multiple accounts, and supported browser audio controls. The browser-based screenshot inspection was not completed in the development environment.
+Automated tests do not replace a real-browser/device pass. Before release beyond local development, manually verify desktop and mobile breakpoints, keyboard-only flows, Persian RTL and Russian labels, hash-based artist/album direct links and browser back/forward behavior, dialogs/focus restoration, actual account cookie behavior on the chosen deployment origin, moderation workflows with multiple accounts, and supported browser audio controls. The browser-based screenshot inspection was not completed in the development environment.
 
 ## Important files
 
@@ -94,5 +97,7 @@ Automated tests do not replace a real-browser/device pass. Before release beyond
 - `server/api.mjs`, `server/start.mjs`: account/community API.
 - `scripts/start-web.mjs`: safe local frontend server.
 - `tests/`: API, catalogue, rights, player, design, community authorization, and safe-static-server tests.
-- `design/PHASE-1-HOME-NAVIGATION.md` through `design/PHASE-5-COMMUNITY-BACKEND.md`: current product/design roadmap specifications.
+- `design/PHASE-1-HOME-NAVIGATION.md` through `design/PHASE-7-PAGE-EXPERIENCE.md`: current product/design roadmap specifications.
+- `design/tokens.css` and `design/phase-6-quality.css`: canonical design tokens and shared quality/accessibility layer.
+- `design/phase-7-page-experience.css`: contextual sidebar, genre-card and detail-page layout rules.
 - `RELEASE-NOTES.md`: this consolidated release record.

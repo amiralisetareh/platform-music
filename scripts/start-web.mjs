@@ -12,7 +12,7 @@ const PUBLIC_FILES = new Set([
   'index.html', 'styles.css', 'app.js', 'config.js', 'catalog-data.js',
   'catalog-service.js', 'artwork-fallback.js'
 ]);
-const PUBLIC_DESIGN_FILE = /^design\/phase-[1-5]-[a-z0-9-]+\.css$/;
+const PUBLIC_DESIGN_FILE = /^design\/(?:phase-[1-7]-[a-z0-9-]+|tokens)\.css$/;
 const TYPES = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.svg':'image/svg+xml', '.png':'image/png', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.webp':'image/webp', '.ico':'image/x-icon' };
 
 function resolvePublicPath(rawPath) {

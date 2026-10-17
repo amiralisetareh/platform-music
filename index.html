@@ -15,6 +15,9 @@
   <link rel="stylesheet" href="design/phase-3-listening-experience.css" />
   <link rel="stylesheet" href="design/phase-4-community-profile.css" />
   <link rel="stylesheet" href="design/phase-5-community-backend.css" />
+  <link rel="stylesheet" href="design/phase-7-page-experience.css" />
+  <link rel="stylesheet" href="design/tokens.css" />
+  <link rel="stylesheet" href="design/phase-6-quality.css" />
 </head>
 <body>
   <div class="app">
@@ -106,16 +109,16 @@
           <section class="featured" aria-label="Featured playlist">
             <div class="featured-bg" aria-hidden="true"></div>
             <div class="featured-content">
-              <span class="featured-label">STARMUSICS EDIT</span>
-              <h1>Persian Trap</h1>
-              <p>A close-up of the new Persian sound, selected for discovery.</p>
-              <div class="featured-meta"><span class="featured-meta-mark" aria-hidden="true">✦</span><span>Curated by STARMUSICS</span></div>
+              <span class="featured-label">STARMUSICS · CATALOGUE PREVIEW</span>
+              <h1>Find your next sound</h1>
+              <p>Explore artists, albums and genres. Playback is available only when an approved audio source exists.</p>
+              <div class="featured-meta"><span class="featured-meta-mark" aria-hidden="true">✦</span><span>Editorial direction · demo catalogue</span></div>
               <div class="featured-actions">
-                <button class="btn-play" type="button" data-play="persian-trap">
+                <button class="btn-play" type="button" data-go-view="explore">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                  Explore mix
+                  Explore catalogue
                 </button>
-                <button class="btn-add" id="btn-save-featured" type="button" title="Save playlist" aria-label="Save Persian Trap playlist" aria-pressed="false">＋</button>
+                <button class="btn-add" id="btn-save-featured" type="button" title="Save this editorial selection" aria-label="Save editorial selection" aria-pressed="false">＋</button>
               </div>
             </div>
             <div class="featured-brand">STARMUSICS</div>
@@ -137,28 +140,28 @@
 
           <section class="section home-section home-releases">
             <div class="section-title">
-              <div class="section-heading-copy"><h2>New Releases</h2><p>Recent projects across the catalogue.</p></div>
+              <div class="section-heading-copy"><h2>Selected releases &amp; tracks</h2><p>Catalogue entries for discovery; release details are still being verified.</p></div>
               <a href="#" class="see-all" data-go-view="albums">See all</a>
             </div>
             <div class="card-row" id="releases-row"></div>
           </section>
           <section class="section home-section home-playlists">
             <div class="section-title">
-              <div class="section-heading-copy"><h2>Featured Playlists</h2><p>Curated paths into different scenes.</p></div>
+              <div class="section-heading-copy"><h2>Editorial playlists</h2><p>Playlist concepts are visible while verified tracklists are being prepared.</p></div>
               <a href="#" class="see-all" data-go-view="explore">See all</a>
             </div>
             <div class="card-row" id="playlists-row"></div>
           </section>
           <section class="section home-section home-artists">
             <div class="section-title">
-              <div class="section-heading-copy"><h2>Popular Artists</h2><p>People shaping the sound right now.</p></div>
+              <div class="section-heading-copy"><h2>Artist discovery</h2><p>Artist profiles from the current demo catalogue; popularity rankings are not implied.</p></div>
               <a href="#" class="see-all" data-go-view="artists">See all</a>
             </div>
             <div class="artists-row" id="artists-row"></div>
           </section>
           <section class="section home-section home-discussions">
             <div class="section-title">
-              <div class="section-heading-copy"><h2>Conversations worth having</h2><p>A few topics from the community.</p></div>
+              <div class="section-heading-copy"><h2>Community conversations</h2><p>A small window into music discussions.</p></div>
               <a href="#" class="see-all" data-go-view="discussions">View discussions</a>
             </div>
             <div class="home-discussion-grid" id="home-discussion-list"></div>
@@ -232,7 +235,7 @@
           <section class="page-section"><div class="card-row" id="albums-page-row"></div></section>
         </div>
         <div class="view" id="view-genres">
-          <section class="page-heading"><p class="eyebrow">FIND YOUR SOUND</p><h1>Genres</h1><p class="page-description">Move between scenes, moods, and musical traditions.</p></section>
+          <section class="page-heading"><p class="eyebrow">FIND YOUR SOUND</p><h1>Genres</h1><p class="page-description">Explore scenes, moods, and musical traditions. Counts reflect linked catalogue entries, not platform-wide availability.</p></section>
           <section class="page-section"><div class="genre-grid" id="genres-page-grid"></div></section>
         </div>
         <div class="view" id="view-recent">
@@ -352,18 +355,28 @@
             </article>
           </section>
         </div>
+        <div class="view" id="view-entity" aria-label="Catalogue detail page">
+    <section class="entity-detail entity-page" id="entity-detail" hidden aria-labelledby="entity-title" aria-describedby="entity-description">
+      <nav class="entity-breadcrumbs" aria-label="Breadcrumb"><a href="#/home" data-go-view="home">Home</a><span aria-hidden="true">/</span><span id="entity-breadcrumb-type">Catalogue</span></nav>
+      <article class="entity-detail-sheet" id="entity-detail-sheet" tabindex="-1">
+        <button class="entity-close btn-secondary" type="button" data-close-entity aria-label="Go back" title="Go back">← Back</button>
+        <div class="entity-art-column"><div class="entity-hero-art" id="entity-art"><span class="entity-art-watermark" aria-hidden="true">STARMUSICS</span></div><p class="entity-art-note" id="entity-art-note">Catalogue artwork</p></div>
+        <div class="entity-detail-copy"><p class="eyebrow" id="entity-kicker">STARMUSICS COLLECTION</p><h2 id="entity-title">Artist</h2><p id="entity-description" class="page-description"></p><div class="entity-meta" id="entity-meta" aria-label="Catalogue information"></div><button class="btn-secondary entity-save-album" id="btn-save-entity-album" type="button" hidden aria-pressed="false">＋ Save album</button><div class="section-title entity-track-heading"><div><p class="eyebrow">LISTENING DETAILS</p><h3 id="entity-list-title">Popular tracks</h3></div></div><div class="track-list" id="entity-track-list"></div><div class="section-title entity-related-heading"><div><p class="eyebrow">KEEP EXPLORING</p><h3>Related discovery</h3></div><button type="button" class="text-action" id="btn-copy-entity-link">Copy page link</button></div><div class="entity-related" id="entity-related"></div></div>
+      </article>
+    </section>
+        </div>
       </div>
     </main>
 
-    <aside class="rightbar">
-      <section class="panel">
+    <aside class="rightbar" id="rightbar">
+      <section class="panel" data-sidebar-for="home">
         <div class="panel-header">
-          <h3>Trending Now</h3>
-          <button class="icon-btn" aria-label="View all">›</button>
+          <h3>Catalogue highlights</h3>
+          <a class="icon-btn" href="#/explore" data-go-view="explore" aria-label="Explore catalogue">›</a>
         </div>
-        <ol class="trending-list" id="trending-list"></ol>
+        <ol class="trending-list" id="trending-list"></ol><p class="sidebar-context-footnote">Editorial preview from the demo catalogue; not a live chart or streaming ranking.</p>
       </section>
-      <section class="panel">
+      <section class="panel" data-sidebar-for="home">
         <div class="panel-header">
           <h3>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
@@ -377,11 +390,17 @@
         </button>
         <p class="discussion-note">Only the owner can create new topics.</p>
       </section>
-      <div class="promo-card">
+      <div class="promo-card" data-sidebar-for="home">
         <div class="promo-bg"></div>
         <p>Real music<br/>connects people<br/>across borders.</p>
         <span>STARMUSICS</span>
       </div>
+      <section class="panel sidebar-context-panel" id="sidebar-context-panel" hidden aria-live="polite">
+        <div class="panel-header"><h3 id="sidebar-context-title">Explore</h3></div>
+        <p class="sidebar-context-description" id="sidebar-context-description"></p>
+        <div class="sidebar-context-links" id="sidebar-context-links"></div>
+        <p class="sidebar-context-footnote" id="sidebar-context-footnote"></p>
+      </section>
     </aside>
 
     <nav class="mobile-nav" aria-label="Primary navigation">
@@ -453,14 +472,7 @@
       </div>
     </div>
 
-    <section class="entity-detail" id="entity-detail" hidden aria-modal="true" role="dialog" aria-labelledby="entity-title" aria-describedby="entity-description">
-      <div class="entity-detail-backdrop" data-close-entity></div>
-      <article class="entity-detail-sheet" id="entity-detail-sheet" tabindex="-1">
-        <button class="entity-close icon-btn" type="button" data-close-entity aria-label="Close details" title="Close details">×</button>
-        <div class="entity-art-column"><div class="entity-hero-art" id="entity-art"><span class="entity-art-watermark" aria-hidden="true">STARMUSICS</span></div><p class="entity-art-note" id="entity-art-note">Catalogue artwork</p></div>
-        <div class="entity-detail-copy"><p class="eyebrow" id="entity-kicker">STARMUSICS COLLECTION</p><h2 id="entity-title">Artist</h2><p id="entity-description" class="page-description"></p><div class="entity-meta" id="entity-meta" aria-label="Catalogue information"></div><button class="btn-secondary entity-save-album" id="btn-save-entity-album" type="button" hidden aria-pressed="false">＋ Save album</button><div class="section-title entity-track-heading"><div><p class="eyebrow">LISTENING DETAILS</p><h3 id="entity-list-title">Popular tracks</h3></div></div><div class="track-list" id="entity-track-list"></div><div class="section-title entity-related-heading"><div><p class="eyebrow">KEEP EXPLORING</p><h3>Related discovery</h3></div></div><div class="entity-related" id="entity-related"></div></div>
-      </article>
-    </section>
+
     <audio id="audio-engine" preload="metadata"></audio>
     <input id="audio-file-input" type="file" accept="audio/*" hidden />
     <footer class="player" id="music-player" role="region" aria-label="Now playing" hidden>

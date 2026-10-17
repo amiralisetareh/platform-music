@@ -9,6 +9,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const html = readFileSync(resolve(root, 'index.html'), 'utf8');
 const js = readFileSync(resolve(root, 'app.js'), 'utf8');
 const css = readFileSync(resolve(root, 'styles.css'), 'utf8');
+const designTokens = readFileSync(resolve(root, 'design/tokens.css'), 'utf8');
 
 test('application JavaScript parses successfully', () => {
   const result = spawnSync(process.execPath, ['--check', resolve(root, 'app.js')], { encoding: 'utf8' });
@@ -110,7 +111,7 @@ test('language menu includes English, Russian and Persian with RTL support hook'
 test('artist, album and genre discovery detail sheets are wired', () => {
   assert.match(html, /id="entity-detail"/);
   assert.match(html, /id="entity-track-list"/);
-  assert.match(js, /function openEntity\(kind,name\)/);
+  assert.match(js, /function openEntity\(kind,name,options=\{\}\)/);
   assert.match(js, /data-open-artist/);
   assert.match(js, /data-open-genre/);
   assert.match(js, /data-open-album/);
@@ -128,7 +129,8 @@ test('mobile retains working language and player-mode controls', () => {
 test('clear-glass navigation exposes Discussions on desktop and mobile', () => {
   assert.match(html, /class="nav-item[^"]*" data-view="discussions"/);
   assert.match(html, /class="mobile-nav-item[^"]*"[^>]*data-view="discussions"/);
-  assert.match(css, /--glass-bg: linear-gradient\(145deg, rgba\(255,255,255,\.46\)/);
+  assert.match(designTokens, /--glass-bg: var\(--sm-surface-glass\)/);
+  assert.match(designTokens, /--sm-surface-glass: linear-gradient\(145deg, rgba\(255,255,255,\.58\)/);
   assert.match(css, /backdrop-filter: blur\(26px\) saturate\(175%\)/);
   assert.match(css, /STARMUSICS PHASE 1 — Clear Apple-glass foundation/);
 });
@@ -335,8 +337,15 @@ test('Phase 2 discovery layout has a semantic hero, search, and visual accent', 
   assert.match(phaseCss, /prefers-reduced-motion/);
 });
 
-test('Phase 2 artist and album surfaces disclose metadata gaps and preserve modal accessibility', () => {
-  assert.match(html, /aria-modal="true" role="dialog" aria-labelledby="entity-title"/);
+test('Phase 7 artist and album surfaces disclose metadata gaps and use navigable accessible detail pages', () => {
+  assert.match(html, /id="view-entity" aria-label="Catalogue detail page"/);
+  assert.match(html, /id="entity-detail" hidden aria-labelledby="entity-title" aria-describedby="entity-description"/);
+  assert.doesNotMatch(html, /aria-modal="true" role="dialog" aria-labelledby="entity-title"/);
+  assert.match(html, /id="entity-breadcrumb-type"/);
+  assert.match(html, /id="btn-copy-entity-link"/);
+  assert.match(js, /history\.pushState\(\{starmusicsEntityRoute:true,returnRoute:state\.entityReturnRoute\}/);
+  assert.match(js, /window\.addEventListener\('popstate',routeFromLocation\)/);
+  assert.match(js, /function routeFromLocation\(\)/);
   assert.match(html, /id="entity-meta" aria-label="Catalogue information"/);
   assert.match(html, /id="entity-art-note"/);
   assert.match(js, /Demo metadata · verification pending/);

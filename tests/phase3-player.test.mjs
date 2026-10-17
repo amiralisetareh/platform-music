@@ -9,8 +9,8 @@ const js = readFileSync(resolve(root, 'app.js'), 'utf8');
 const css = readFileSync(resolve(root, 'design/phase-3-listening-experience.css'), 'utf8');
 const pkg = JSON.parse(readFileSync(resolve(root, 'package.json'), 'utf8'));
 
-test('v0.8.6 links the Phase 3 listening design layer and keeps the light glass palette', () => {
-  assert.match(pkg.version, /^(0\.8\.[6-9]|0\.9\.0)$/);
+test('consolidated release links the Phase 3 listening design layer and keeps the light glass palette', () => {
+  assert.match(pkg.version, /^(0\.8\.[6-9]|0\.9\.[0-2])$/);
   assert.match(html, /href="design\/phase-3-listening-experience\.css"/);
   assert.match(css, /white\/off-white clear-glass visual language/);
   assert.match(css, /prefers-reduced-motion/);

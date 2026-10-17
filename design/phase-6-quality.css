@@ -1,0 +1,215 @@
+/*
+ * STARMUSICS Phase 6 — quality, accessibility and visual consistency.
+ * Loaded after existing feature layers intentionally: this is the final global policy.
+ * It preserves the light clear-glass aesthetic and changes only shared design behavior.
+ */
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  font-family: var(--sm-font-family);
+  font-size: 14px;
+  line-height: var(--sm-line-body);
+  color: var(--sm-text);
+}
+
+body { background: var(--sm-canvas-gradient); }
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button,
+[role="button"],
+a,
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection { background: rgba(83,107,150,.20); color: var(--sm-text-strong); }
+
+/* Consistent readable text scale for meaningful content and supporting metadata. */
+.page-description,
+.muted-label,
+.about-meta,
+.account-footnote,
+.character-count,
+.discussion-note,
+.queue-header-note,
+.lyrics-legal-note,
+.np-source-actions > span,
+.audio-rights-confirm,
+.community-hero-meta,
+.community-report-details,
+.owner-claim-panel p,
+.comment-form label,
+.comment-item time,
+.profile-stats span,
+.profile-edit-grid .profile-label,
+.profile-local-badge,
+.achievement > small,
+.topic-meta,
+.comment-local-mark,
+.entity-meta,
+.entity-track small,
+.entity-related-card small,
+.saved-album-copy small,
+.about-list li,
+.community-report-card-head span:not(.community-report-status) {
+  color: var(--sm-text-muted) !important;
+  font-size: var(--sm-text-xs) !important;
+  line-height: 1.5;
+}
+
+/* Text that identifies interactive navigation and content should not rely on low-contrast gray. */
+.nav-item,
+.mobile-nav-item,
+.tool-btn,
+.icon-btn,
+.section-title a,
+.search-shell input,
+.discovery-search input,
+.track-row,
+.entity-track,
+.entity-related-card,
+.comment-like-btn,
+.comment-report-btn,
+.language-menu button {
+  color: var(--sm-text-secondary);
+}
+
+input::placeholder,
+textarea::placeholder,
+.discovery-search input::placeholder,
+.search-shell input::placeholder {
+  color: var(--sm-text-muted) !important;
+  opacity: 1;
+}
+
+/* Global focus ring: visible in light glass without depending on hover or color alone. */
+:where(a, button, input, textarea, select, summary, [role="button"], [tabindex]):focus-visible {
+  outline: 2px solid var(--sm-focus) !important;
+  outline-offset: 3px !important;
+  box-shadow: var(--sm-shadow-focus);
+}
+
+:where(input, textarea, select):focus-visible {
+  border-color: var(--sm-focus) !important;
+}
+
+:where(button, input, textarea, select):disabled,
+[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: .62;
+}
+
+/* A consistent minimum for common interactive controls; tiny decorative controls are exempt. */
+:where(.tool-btn, .icon-btn, .language-trigger, .btn-primary, .btn-secondary,
+  .btn-new-discussion, .queue-clear, .comment-like-btn, .comment-report-btn,
+  .community-report-actions button, #btn-share-lyrics, .mini-glass-control) {
+  min-height: 36px;
+}
+
+:where(.tool-btn, .icon-btn, .language-trigger) {
+  min-width: 40px;
+  min-height: 40px;
+}
+
+.mobile-nav-item {
+  min-height: 44px;
+  font-size: 11px !important;
+}
+
+/* Content cards share a quiet border treatment; do not add glass effects to every nested element. */
+:where(.profile-panel, .discussion-thread, .comment-item, .achievement,
+  .playlist-detail-section, .entity-detail-sheet, .queue-panel, .community-report-card) {
+  border-color: var(--sm-border) !important;
+}
+
+:where(.section-title h2) {
+  font-size: var(--sm-heading-sm);
+  line-height: var(--sm-line-heading);
+}
+
+:where(.page-description) { max-width: 72ch; }
+:where(.track-row span, .artists-page-row .artist p, .home-discussion-card span) {
+  font-size: var(--sm-text-xs) !important;
+}
+
+/* Keep important states readable; decorative all-caps labels can remain compact. */
+.community-report-status,
+.thread-live-label,
+.profile-local-badge {
+  color: var(--sm-text-muted) !important;
+}
+
+/* Reduced motion disables ambient animations and nonessential transitions across all feature layers. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Reduced-transparency preferences get solid, distinguishable surfaces. */
+@media (prefers-reduced-transparency: reduce) {
+  :where(.glass, .nav-item, .brand-icon, .search-wrap, .search-shell,
+    .topbar-actions .icon-btn, .avatar, .panel, .language-menu,
+    .btn-new-discussion, .profile-library-icon, .mini-glass-control,
+    .tool-btn, .player, .np-sheet, .mobile-nav, .profile-panel,
+    .achievement, .comment-item, .discussion-thread, .discussion-page-list li,
+    .track-row, .home-discussion-card, .playlist-detail-section,
+    .entity-detail-sheet, .queue-panel, .community-report-card) {
+    background: rgba(249,250,252,.96) !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+}
+
+/* Windows High Contrast / forced-colors mode must retain visible boundaries and current states. */
+@media (forced-colors: active) {
+  :where(button, a, input, textarea, select, [role="button"]):focus-visible {
+    outline: 2px solid Highlight !important;
+    box-shadow: none !important;
+  }
+  :where(.nav-item.active, .mobile-nav-item.active, [aria-current="page"]) {
+    outline: 2px solid Highlight;
+    outline-offset: 2px;
+    forced-color-adjust: auto;
+  }
+  :where(.glass, .panel, .profile-panel, .discussion-thread, .player, .mobile-nav) {
+    border: 1px solid CanvasText !important;
+    forced-color-adjust: auto;
+  }
+}
+
+/* Small viewports keep the same information hierarchy without squeezing content. */
+@media (max-width: 390px) {
+  .content { padding-inline: 12px !important; }
+  .section-title { gap: 10px; }
+  .section-title h2 { font-size: 16px; }
+  .page-description { font-size: 13px !important; }
+  .mobile-nav-item { font-size: 10px !important; }
+}

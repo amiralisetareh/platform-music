@@ -9,8 +9,8 @@ const js = readFileSync(resolve(root, 'app.js'), 'utf8');
 const css = readFileSync(resolve(root, 'design/phase-4-community-profile.css'), 'utf8');
 const packageData = JSON.parse(readFileSync(resolve(root, 'package.json'), 'utf8'));
 
-test('v0.8.7 links a dedicated Phase 4 community/profile design layer', () => {
-  assert.equal(packageData.version, '0.9.0');
+test('consolidated release links a dedicated Phase 4 community/profile design layer', () => {
+  assert.match(packageData.version, /^0\.9\.[12]$/);
   assert.match(html, /href="design\/phase-4-community-profile\.css"/);
   assert.match(css, /white\/off-white glass surfaces/);
   assert.match(css, /prefers-reduced-motion: reduce/);

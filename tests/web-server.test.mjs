@@ -26,11 +26,11 @@ async function startServer() {
    assert.equal(home.status,200);
    assert.match(home.headers.get('content-type') || '', /text\/html/);
    assert.match(await home.text(), /STARMUSICS/);
-   for (const file of ['/app.js','/styles.css','/design/phase-5-community-backend.css']) {
+   for (const file of ['/app.js','/styles.css','/design/phase-5-community-backend.css','/design/tokens.css','/design/phase-6-quality.css','/design/phase-7-page-experience.css']) {
      const response=await fetch(`${base}${file}`);
      assert.equal(response.status,200,`${file} should be a public frontend asset`);
    }
-   for (const file of ['/.env','/.env.example','/server/api.mjs','/scripts/start-api.mjs','/tests/community-backend.test.mjs','/data/catalog.json','/README.md','/package.json','/accounts.json','/design/phase-1-home-navigation.md','/../README.md','/design/%2e%2e/README.md']) {
+   for (const file of ['/.env','/.env.example','/server/api.mjs','/scripts/start-api.mjs','/tests/community-backend.test.mjs','/data/catalog.json','/README.md','/package.json','/accounts.json','/design/phase-1-home-navigation.md','/design/PHASE-6-CONSISTENCY-ACCESSIBILITY.md','/../README.md','/design/%2e%2e/README.md']) {
      const response=await fetch(`${base}${file}`);
      assert.equal(response.status,404,`${file} must not be exposed by the frontend server`);
    }
