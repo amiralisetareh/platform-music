@@ -1,0 +1,527 @@
+{
+  "schemaVersion": 1,
+  "catalogId": "starmusics-demo-catalog",
+  "policy": {
+    "catalogMode": "metadata-first",
+    "audioDelivery": "allowlisted-sources-only",
+    "defaultRightsStatus": "unverified",
+    "allowUnverifiedRemoteAudio": false
+  },
+  "artists": [
+    {
+      "id": "artist-kendrick-lamar",
+      "legacyName": "Kendrick Lamar",
+      "name": "Kendrick Lamar",
+      "artworkUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop",
+      "biography": null,
+      "metadataStatus": "demo-seed"
+    },
+    {
+      "id": "artist-drake",
+      "legacyName": "Drake",
+      "name": "Drake",
+      "artworkUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop",
+      "biography": null,
+      "metadataStatus": "demo-seed"
+    },
+    {
+      "id": "artist-yeat",
+      "legacyName": "Yeat",
+      "name": "Yeat",
+      "artworkUrl": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=200&h=200&fit=crop",
+      "biography": null,
+      "metadataStatus": "demo-seed"
+    },
+    {
+      "id": "artist-travis-scott",
+      "legacyName": "Travis Scott",
+      "name": "Travis Scott",
+      "artworkUrl": "https://images.unsplash.com/photo-1522075469751-3a6694010291?w=200&h=200&fit=crop",
+      "biography": null,
+      "metadataStatus": "demo-seed"
+    },
+    {
+      "id": "artist-future",
+      "legacyName": "Future",
+      "name": "Future",
+      "artworkUrl": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=200&h=200&fit=crop",
+      "biography": null,
+      "metadataStatus": "demo-seed"
+    },
+    {
+      "id": "artist-tame-impala",
+      "legacyName": "Tame Impala",
+      "name": "Tame Impala",
+      "artworkUrl": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop",
+      "biography": null,
+      "metadataStatus": "demo-seed"
+    },
+    {
+      "id": "artist-the-weeknd",
+      "legacyName": "The Weeknd",
+      "name": "The Weeknd",
+      "artworkUrl": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=80&h=80&fit=crop",
+      "biography": null,
+      "metadataStatus": "demo-seed"
+    },
+    {
+      "id": "artist-uicideboy",
+      "legacyName": "$uicideboy$",
+      "name": "$uicideboy$",
+      "artworkUrl": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=80&h=80&fit=crop",
+      "biography": null,
+      "metadataStatus": "demo-seed"
+    },
+    {
+      "id": "artist-070-shake",
+      "legacyName": "070 Shake",
+      "name": "070 Shake",
+      "artworkUrl": "https://images.unsplash.com/photo-1470225620780-dba8ba35e271?w=80&h=80&fit=crop",
+      "biography": null,
+      "metadataStatus": "demo-seed"
+    },
+    {
+      "id": "artist-felix",
+      "legacyName": "FELIX",
+      "name": "FELIX",
+      "artworkUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop",
+      "biography": null,
+      "metadataStatus": "demo-seed"
+    },
+    {
+      "id": "artist-frank-ocean",
+      "legacyName": "Frank Ocean",
+      "name": "Frank Ocean",
+      "artworkUrl": "https://images.unsplash.com/photo-1459749411177-03992541138c?w=400&h=400&fit=crop",
+      "biography": null,
+      "metadataStatus": "demo-seed"
+    },
+    {
+      "id": "artist-shaya",
+      "legacyName": "Shaya",
+      "name": "Shaya",
+      "artworkUrl": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=400&fit=crop",
+      "biography": null,
+      "metadataStatus": "demo-seed"
+    }
+  ],
+  "albums": [
+    {
+      "id": "album-eternal-return",
+      "legacyId": "r1",
+      "title": "Eternal Return",
+      "artistId": "artist-felix",
+      "artworkUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop",
+      "releaseDate": null,
+      "label": null,
+      "trackIds": [],
+      "previewDurationSeconds": 185,
+      "availability": "metadata-only",
+      "metadataStatus": "demo-seed",
+      "rightsStatus": "unverified"
+    },
+    {
+      "id": "album-a-better-tomorrow",
+      "legacyId": "r3",
+      "title": "A Better Tomorrow",
+      "artistId": "artist-frank-ocean",
+      "artworkUrl": "https://images.unsplash.com/photo-1459749411177-03992541138c?w=400&h=400&fit=crop",
+      "releaseDate": null,
+      "label": null,
+      "trackIds": [],
+      "previewDurationSeconds": 248,
+      "availability": "metadata-only",
+      "metadataStatus": "demo-seed",
+      "rightsStatus": "unverified"
+    },
+    {
+      "id": "album-hajbazi",
+      "legacyId": "r4",
+      "title": "HajBazi",
+      "artistId": "artist-shaya",
+      "artworkUrl": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=400&fit=crop",
+      "releaseDate": null,
+      "label": null,
+      "trackIds": [],
+      "previewDurationSeconds": 201,
+      "availability": "metadata-only",
+      "metadataStatus": "demo-seed",
+      "rightsStatus": "unverified"
+    },
+    {
+      "id": "album-ds2",
+      "legacyId": "r5",
+      "title": "DS2",
+      "artistId": "artist-future",
+      "artworkUrl": "https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?w=400&h=400&fit=crop",
+      "releaseDate": null,
+      "label": null,
+      "trackIds": [],
+      "previewDurationSeconds": 276,
+      "availability": "metadata-only",
+      "metadataStatus": "demo-seed",
+      "rightsStatus": "unverified"
+    }
+  ],
+  "tracks": [
+    {
+      "id": "track-yeat-lyfestyle",
+      "legacyId": "1",
+      "legacyRank": 1,
+      "title": "Lyfestyle",
+      "artistId": "artist-yeat",
+      "albumId": null,
+      "genreIds": [
+        "genre-hip-hop"
+      ],
+      "durationMs": 185000,
+      "explicit": true,
+      "artworkUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=80&h=80&fit=crop",
+      "availability": "metadata-only",
+      "metadataStatus": "demo-seed",
+      "audio": {
+        "status": "not-configured",
+        "sourceId": null,
+        "url": null,
+        "mimeType": null
+      },
+      "rights": {
+        "status": "unverified",
+        "rightsHolder": null,
+        "territories": [],
+        "verifiedAt": null,
+        "notes": "Metadata only. Do not distribute audio until rights and source permissions are verified.",
+        "evidenceRef": null
+      }
+    },
+    {
+      "id": "track-the-weeknd-dancing-in-the-flames",
+      "legacyId": "2",
+      "legacyRank": 2,
+      "title": "Dancing In The Flames",
+      "artistId": "artist-the-weeknd",
+      "albumId": null,
+      "genreIds": [
+        "genre-r-b",
+        "genre-electronic"
+      ],
+      "durationMs": 234000,
+      "explicit": true,
+      "artworkUrl": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=80&h=80&fit=crop",
+      "availability": "metadata-only",
+      "metadataStatus": "demo-seed",
+      "audio": {
+        "status": "not-configured",
+        "sourceId": null,
+        "url": null,
+        "mimeType": null
+      },
+      "rights": {
+        "status": "unverified",
+        "rightsHolder": null,
+        "territories": [],
+        "verifiedAt": null,
+        "notes": "Metadata only. Do not distribute audio until rights and source permissions are verified.",
+        "evidenceRef": null
+      }
+    },
+    {
+      "id": "track-uicideboy-mount-sinai",
+      "legacyId": "3",
+      "legacyRank": 3,
+      "title": "Mount Sinai",
+      "artistId": "artist-uicideboy",
+      "albumId": null,
+      "genreIds": [],
+      "durationMs": 198000,
+      "explicit": true,
+      "artworkUrl": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=80&h=80&fit=crop",
+      "availability": "metadata-only",
+      "metadataStatus": "demo-seed",
+      "audio": {
+        "status": "not-configured",
+        "sourceId": null,
+        "url": null,
+        "mimeType": null
+      },
+      "rights": {
+        "status": "unverified",
+        "rightsHolder": null,
+        "territories": [],
+        "verifiedAt": null,
+        "notes": "Metadata only. Do not distribute audio until rights and source permissions are verified.",
+        "evidenceRef": null
+      }
+    },
+    {
+      "id": "track-070-shake-moral-combat",
+      "legacyId": "4",
+      "legacyRank": 4,
+      "title": "Moral Combat",
+      "artistId": "artist-070-shake",
+      "albumId": null,
+      "genreIds": [
+        "genre-alternative",
+        "genre-electronic"
+      ],
+      "durationMs": 221000,
+      "explicit": true,
+      "artworkUrl": "https://images.unsplash.com/photo-1470225620780-dba8ba35e271?w=80&h=80&fit=crop",
+      "availability": "metadata-only",
+      "metadataStatus": "demo-seed",
+      "audio": {
+        "status": "not-configured",
+        "sourceId": null,
+        "url": null,
+        "mimeType": null
+      },
+      "rights": {
+        "status": "unverified",
+        "rightsHolder": null,
+        "territories": [],
+        "verifiedAt": null,
+        "notes": "Metadata only. Do not distribute audio until rights and source permissions are verified.",
+        "evidenceRef": null
+      }
+    },
+    {
+      "id": "track-kendrick-lamar-not-like-us",
+      "legacyId": "5",
+      "legacyRank": 5,
+      "title": "Not Like Us",
+      "artistId": "artist-kendrick-lamar",
+      "albumId": null,
+      "genreIds": [
+        "genre-hip-hop"
+      ],
+      "durationMs": 274000,
+      "explicit": true,
+      "artworkUrl": "https://images.unsplash.com/photo-1516280440614-6697288d5d38?w=80&h=80&fit=crop",
+      "availability": "metadata-only",
+      "metadataStatus": "demo-seed",
+      "audio": {
+        "status": "not-configured",
+        "sourceId": null,
+        "url": null,
+        "mimeType": null
+      },
+      "rights": {
+        "status": "unverified",
+        "rightsHolder": null,
+        "territories": [],
+        "verifiedAt": null,
+        "notes": "Metadata only. Do not distribute audio until rights and source permissions are verified.",
+        "evidenceRef": null
+      }
+    },
+    {
+      "id": "track-travis-scott-sicko-mode-remix",
+      "legacyId": "r2",
+      "legacyRank": null,
+      "title": "Sicko Mode (Remix)",
+      "artistId": "artist-travis-scott",
+      "albumId": null,
+      "genreIds": [
+        "genre-hip-hop"
+      ],
+      "durationMs": 312000,
+      "explicit": true,
+      "artworkUrl": "https://images.unsplash.com/photo-1516280440614-6697288d5d38?w=400&h=400&fit=crop",
+      "availability": "metadata-only",
+      "metadataStatus": "demo-seed",
+      "releaseType": "single",
+      "audio": {
+        "status": "not-configured",
+        "sourceId": null,
+        "url": null,
+        "mimeType": null
+      },
+      "rights": {
+        "status": "unverified",
+        "rightsHolder": null,
+        "territories": [],
+        "verifiedAt": null,
+        "evidenceRef": null,
+        "notes": "Metadata only. Do not distribute audio until rights and source permissions are verified."
+      }
+    }
+  ],
+  "playlists": [
+    {
+      "id": "playlist-persian-trap",
+      "legacyId": "p1",
+      "title": "Persian Trap",
+      "description": "Curated by STARMUSICS",
+      "curator": "Curated by STARMUSICS",
+      "artworkUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop",
+      "trackIds": [],
+      "kind": "editorial",
+      "metadataStatus": "editorial-demo"
+    },
+    {
+      "id": "playlist-hip-hop-essentials",
+      "legacyId": "p2",
+      "title": "Hip Hop Essentials",
+      "description": "Global",
+      "curator": "Global",
+      "artworkUrl": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&h=400&fit=crop",
+      "trackIds": [],
+      "kind": "editorial",
+      "metadataStatus": "editorial-demo"
+    },
+    {
+      "id": "playlist-alternative-rock",
+      "legacyId": "p3",
+      "title": "Alternative Rock",
+      "description": "International",
+      "curator": "International",
+      "artworkUrl": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&h=400&fit=crop",
+      "trackIds": [],
+      "kind": "editorial",
+      "metadataStatus": "editorial-demo"
+    },
+    {
+      "id": "playlist-chill-vibes",
+      "legacyId": "p4",
+      "title": "Chill Vibes",
+      "description": "For You",
+      "curator": "For You",
+      "artworkUrl": "https://images.unsplash.com/photo-1470225620780-dba8ba35e271?w=400&h=400&fit=crop",
+      "trackIds": [],
+      "kind": "editorial",
+      "metadataStatus": "editorial-demo"
+    },
+    {
+      "id": "playlist-rock-classics",
+      "legacyId": "p5",
+      "title": "Rock Classics",
+      "description": "Legends Never Die",
+      "curator": "Legends Never Die",
+      "artworkUrl": null,
+      "trackIds": [],
+      "kind": "editorial",
+      "metadataStatus": "editorial-demo",
+      "nirvana": true
+    }
+  ],
+  "genres": [
+    {
+      "id": "genre-persian-trap",
+      "name": "Persian Trap",
+      "description": null,
+      "metadataStatus": "editorial-demo"
+    },
+    {
+      "id": "genre-hip-hop",
+      "name": "Hip-Hop",
+      "description": null,
+      "metadataStatus": "editorial-demo"
+    },
+    {
+      "id": "genre-r-b",
+      "name": "R&B",
+      "description": null,
+      "metadataStatus": "editorial-demo"
+    },
+    {
+      "id": "genre-alternative",
+      "name": "Alternative",
+      "description": null,
+      "metadataStatus": "editorial-demo"
+    },
+    {
+      "id": "genre-electronic",
+      "name": "Electronic",
+      "description": null,
+      "metadataStatus": "editorial-demo"
+    },
+    {
+      "id": "genre-indie",
+      "name": "Indie",
+      "description": null,
+      "metadataStatus": "editorial-demo"
+    },
+    {
+      "id": "genre-drill",
+      "name": "Drill",
+      "description": null,
+      "metadataStatus": "editorial-demo"
+    },
+    {
+      "id": "genre-afrobeats",
+      "name": "Afrobeats",
+      "description": null,
+      "metadataStatus": "editorial-demo"
+    },
+    {
+      "id": "genre-lo-fi",
+      "name": "Lo-Fi",
+      "description": null,
+      "metadataStatus": "editorial-demo"
+    },
+    {
+      "id": "genre-rock",
+      "name": "Rock",
+      "description": null,
+      "metadataStatus": "editorial-demo"
+    }
+  ],
+  "discussionTopics": [
+    {
+      "title": "The Best Persian Trap Artists?",
+      "replies": 12,
+      "time": "2h ago",
+      "avatars": 2
+    },
+    {
+      "title": "Thoughts on Ye's New Album?",
+      "replies": 45,
+      "time": "5h ago",
+      "avatars": 1
+    },
+    {
+      "title": "What's your favorite track rn?",
+      "replies": 28,
+      "time": "7h ago",
+      "avatars": 1
+    },
+    {
+      "title": "Underrated Artists",
+      "replies": 18,
+      "time": "9h ago",
+      "avatars": 1
+    }
+  ],
+  "editorial": {
+    "trendingTrackIds": [
+      "track-yeat-lyfestyle",
+      "track-the-weeknd-dancing-in-the-flames",
+      "track-uicideboy-mount-sinai",
+      "track-070-shake-moral-combat",
+      "track-kendrick-lamar-not-like-us"
+    ],
+    "featuredPlaylistId": "playlist-persian-trap",
+    "homeAlbumIds": [
+      "album-eternal-return",
+      "album-a-better-tomorrow",
+      "album-hajbazi",
+      "album-ds2"
+    ],
+    "homeArtistIds": [
+      "artist-kendrick-lamar",
+      "artist-drake",
+      "artist-yeat",
+      "artist-travis-scott",
+      "artist-future",
+      "artist-tame-impala"
+    ],
+    "homeReleaseIds": [
+      "album-eternal-return",
+      "track-travis-scott-sicko-mode-remix",
+      "album-a-better-tomorrow",
+      "album-hajbazi",
+      "album-ds2"
+    ]
+  },
+  "audioSources": []
+}

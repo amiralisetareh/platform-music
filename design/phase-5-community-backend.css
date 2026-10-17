@@ -1,0 +1,62 @@
+/* Phase 5 — shared community, restrained clear-glass controls. */
+.community-source-state { font-size: 16px; letter-spacing: -.03em; }
+.community-moderation-panel { margin: 20px 0 24px; padding: 21px; border: 1px solid rgba(111,127,153,.18); border-radius: 22px; background: rgba(255,255,255,.44); box-shadow: inset 0 1px 0 rgba(255,255,255,.84), 0 10px 30px rgba(40,55,80,.04); backdrop-filter: blur(18px) saturate(1.15); -webkit-backdrop-filter: blur(18px) saturate(1.15); }
+.community-moderation-panel[hidden], .community-topic-create-section[hidden], .owner-claim-panel[hidden] { display:none !important; }
+.community-moderation-heading, .community-reports-heading, .community-report-card-head { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; }
+.community-moderation-heading h2 { margin:3px 0 8px; letter-spacing:-.04em; }
+.community-moderation-heading p:not(.eyebrow) { max-width:650px; margin:0; color:var(--muted); font-size:12px; line-height:1.65; }
+.community-topic-create-section { margin-top:19px; padding:17px; border:1px solid rgba(111,127,153,.14); border-radius:17px; background:rgba(255,255,255,.44); }
+.community-topic-create-section h3, .community-reports-heading h3 { margin:0; font-size:14px; letter-spacing:-.025em; }
+.community-topic-create-form { display:grid; grid-template-columns:minmax(0,1fr); gap:10px; margin-top:12px; }
+.community-topic-create-form label, #report-form label { display:block; margin:0 0 6px; font-size:11px; color:var(--muted); font-weight:700; }
+.community-topic-create-form input, .community-topic-create-form textarea, #report-form select, #report-form textarea, .owner-claim-panel input { box-sizing:border-box; width:100%; padding:11px 12px; border:1px solid rgba(125,139,159,.24); border-radius:12px; outline:none; color:var(--ink); background:rgba(255,255,255,.78); font:inherit; font-size:12px; resize:vertical; }
+.community-topic-create-form input:focus, .community-topic-create-form textarea:focus, #report-form select:focus, #report-form textarea:focus, .owner-claim-panel input:focus { border-color:rgba(91,112,151,.55); box-shadow:0 0 0 3px rgba(111,127,153,.12); }
+.community-reports-heading { align-items:center; margin:23px 0 12px; }
+.community-reports-heading .muted-label { text-align:right; }
+.community-report-list { display:grid; gap:10px; }
+.moderation-loading { margin:0; padding:14px; color:var(--muted); font-size:12px; line-height:1.6; border:1px dashed rgba(125,139,159,.25); border-radius:13px; }
+.community-report-card { min-width:0; padding:15px; border:1px solid rgba(125,139,159,.18); border-radius:16px; background:rgba(255,255,255,.62); }
+.community-report-card-head strong { display:block; text-transform:capitalize; font-size:12px; }
+.community-report-card-head span:not(.community-report-status) { display:block; margin-top:4px; color:var(--muted); font-size:10px; line-height:1.5; }
+.community-report-status { flex:0 0 auto; padding:5px 8px; border:1px solid rgba(125,139,159,.18); border-radius:999px; color:#586477; background:rgba(245,247,251,.78); font-size:9px; font-weight:750; text-transform:uppercase; letter-spacing:.07em; }
+.community-report-status.status-open { color:#895d20; border-color:rgba(192,139,60,.2); background:rgba(255,246,228,.78); }
+.community-report-status.status-closed { color:#287754; border-color:rgba(52,145,104,.18); background:rgba(235,249,241,.8); }
+.community-report-comment { margin:12px 0 0; padding:11px 12px; border-radius:11px; background:rgba(244,246,250,.68); font-size:12px; line-height:1.6; overflow-wrap:anywhere; white-space:pre-wrap; }
+.community-report-details { margin:8px 0 0; color:var(--muted); font-size:11px; line-height:1.55; overflow-wrap:anywhere; }
+.community-report-actions { display:flex; align-items:center; flex-wrap:wrap; gap:7px; margin-top:12px; }
+.community-report-actions button { padding:7px 9px; font-size:10px; }
+.community-report-actions button:disabled { opacity:.4; cursor:not-allowed; }
+.comment-author-button { padding:0; border:0; color:var(--ink); background:transparent; font:inherit; font-weight:750; cursor:pointer; text-align:left; }
+.comment-author-button:hover { text-decoration:underline; text-underline-offset:3px; }
+.comment-report-btn { padding:3px 6px; border:0; border-radius:7px; color:var(--muted); background:transparent; font-size:10px; cursor:pointer; }
+.comment-report-btn:hover { color:#9b3340; background:rgba(190,53,68,.06); }
+.comment-local-mark { margin-left:auto; }
+.community-modal { width:min(470px,calc(100vw - 24px)); }
+.community-modal .account-dialog-surface { padding:23px; }
+.community-modal .page-description { margin:12px 0 18px; font-size:12px; line-height:1.7; }
+#report-form { display:grid; gap:8px; }
+#report-form select { min-height:42px; }
+#report-form textarea { min-height:85px; }
+#report-form .account-form-actions { margin-top:9px; }
+.account-dialog-close { flex:0 0 34px; width:34px; height:34px; display:grid; place-items:center; border:1px solid rgba(255,255,255,.9); border-radius:12px; color:var(--ink); background:rgba(255,255,255,.66); font-size:23px; line-height:1; cursor:pointer; }
+.public-profile-identity { display:flex; align-items:center; gap:13px; margin:18px 0 12px; padding:13px; border:1px solid rgba(125,139,159,.16); border-radius:15px; background:rgba(255,255,255,.5); }
+.public-profile-avatar { width:44px; height:44px; flex:0 0 44px; display:grid; place-items:center; border:1px solid rgba(255,255,255,.92); border-radius:14px; color:#3f4a5b; background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(226,232,241,.72)); box-shadow:0 6px 16px rgba(40,55,80,.07); font-size:13px; font-weight:800; }
+.public-profile-identity > div { min-width:0; }
+.public-profile-identity > div > span { font-size:12px; font-weight:750; }
+.public-profile-identity p { margin:4px 0 0; color:var(--muted); font-size:11px; }
+.public-profile-bio { min-height:42px; margin:15px 2px 20px; color:#505b6c; font-size:13px; line-height:1.7; overflow-wrap:anywhere; white-space:pre-wrap; }
+.owner-claim-panel { margin-top:15px; padding:15px; border:1px solid rgba(111,127,153,.18); border-radius:15px; background:rgba(255,255,255,.52); text-align:left; }
+.owner-claim-panel h4 { margin:0 0 8px; font-size:12px; }
+.owner-claim-panel p { margin:0 0 12px; color:var(--muted); font-size:11px; line-height:1.6; }
+.owner-claim-panel input { margin-bottom:10px; }
+.owner-claim-panel button { width:100%; }
+@media (max-width:700px) {
+  .community-moderation-panel { padding:15px; border-radius:18px; }
+  .community-moderation-heading { flex-direction:column; }
+  .community-moderation-heading > button { width:100%; }
+  .community-topic-create-section { padding:13px; }
+  .community-report-actions button { flex:1 1 130px; }
+  .community-modal .account-dialog-surface { padding:18px; }
+}
+@media (prefers-reduced-motion:reduce) { .community-report-card, .comment-report-btn { transition:none !important; } }
+@media (prefers-reduced-transparency:reduce) { .community-moderation-panel, .community-topic-create-section, .community-report-card, .community-report-comment, .public-profile-identity, .owner-claim-panel { backdrop-filter:none; -webkit-backdrop-filter:none; background:rgba(255,255,255,.96); } }

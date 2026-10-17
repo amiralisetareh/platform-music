@@ -1,0 +1,76 @@
+/* STARMUSICS Phase 3 — listening experience refinement.
+   Preserve the established white/off-white clear-glass visual language. */
+
+/* Queue: a focused listening-order surface with explicit, discoverable actions. */
+.queue-panel {
+  border: 1px solid rgba(255,255,255,.92);
+  border-radius: 22px;
+  background: rgba(249,251,254,.86);
+  -webkit-backdrop-filter: blur(30px) saturate(1.35);
+  backdrop-filter: blur(30px) saturate(1.35);
+  box-shadow: 0 22px 64px rgba(25,34,50,.16), inset 0 1px 0 rgba(255,255,255,.92);
+}
+.queue-header { gap: 14px; align-items: center; padding: 17px 17px 13px; }
+.queue-header h3 { margin: 0; font-size: 18px; letter-spacing: -.035em; }
+.queue-header .eyebrow { margin-bottom: 3px; }
+.queue-header-note { margin: 4px 0 0; color: #7b8492; font-size: 11px; }
+.queue-header-actions { display: flex; align-items: center; gap: 7px; flex: 0 0 auto; }
+.queue-clear { min-height: 34px; border: 1px solid rgba(65,78,98,.13); border-radius: 11px; padding: 0 11px; color: #687284; background: rgba(255,255,255,.62); font: inherit; font-size: 11px; cursor: pointer; }
+.queue-clear:disabled { opacity: .4; cursor: default; }
+.queue-clear:not(:disabled):hover, .queue-action:not(:disabled):hover { background: rgba(255,255,255,.96); color: #202a3b; }
+#queue-list { display: grid; gap: 3px; padding: 2px 9px 12px; }
+.queue-entry { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 3px; min-width: 0; border: 1px solid transparent; border-radius: 14px; transition: background .18s ease, border-color .18s ease; }
+.queue-entry:hover, .queue-entry:focus-within { background: rgba(255,255,255,.68); border-color: rgba(255,255,255,.88); }
+#queue-list .q-item { min-width: 0; padding: 7px 6px; border-radius: 12px; background: transparent; }
+#queue-list .q-item:hover { background: transparent; }
+.queue-entry .q-item img { width: 42px; height: 42px; border-radius: 12px; box-shadow: 0 2px 9px rgba(35,45,61,.08); }
+.queue-entry .q-item-copy { gap: 4px; }
+.queue-entry .q-item-copy strong { font-size: 12px; font-weight: 650; }
+.queue-entry .q-item-copy > span { font-size: 10.5px; }
+.queue-entry-actions { display: flex; align-items: center; gap: 1px; padding-right: 5px; opacity: .82; }
+.queue-action { display: grid; place-items: center; width: 27px; height: 27px; padding: 0; border: 1px solid transparent; border-radius: 9px; color: #697486; background: transparent; font: inherit; font-size: 15px; cursor: pointer; }
+.queue-action:disabled { opacity: .25; cursor: default; }
+.queue-action:focus-visible, .queue-clear:focus-visible { outline: 2px solid rgba(74,95,133,.78); outline-offset: 2px; }
+.queue-action.queue-remove { font-size: 19px; }
+.queue-empty { margin: 0; padding: 18px 13px 22px; color: #778191; text-align: center; font-size: 12px; line-height: 1.55; }
+
+/* Full player controls expose their state consistently in every player mode. */
+.np-mode-switch { border: 1px solid rgba(255,255,255,.92); box-shadow: 0 6px 22px rgba(25,34,50,.07), inset 0 1px 0 rgba(255,255,255,.95); }
+.np-mode-switch button { min-height: 34px; padding: 8px 13px; }
+.np-mode-switch button.active { background: rgba(255,255,255,.98); box-shadow: 0 3px 10px rgba(23,31,45,.1), inset 0 1px 0 white; }
+.np-controls .ctrl[aria-pressed="true"]:not(.large), .player-controls .ctrl[aria-pressed="true"] { color: #2f5b8b; background: rgba(110,151,202,.12); }
+.np-player-tools { padding-block: 3px; }
+.np-tool-button:focus-visible, .lyrics-card-actions button:focus-visible, .lyrics-card-actions select:focus-visible { outline: 2px solid rgba(74,95,133,.78); outline-offset: 3px; }
+.np-lyrics { border: 1px solid rgba(255,255,255,.84); background: linear-gradient(145deg,rgba(255,255,255,.58),rgba(238,242,248,.42)); }
+.lyrics-heading { align-items: flex-start; flex-wrap: wrap; }
+.lyrics-card-actions { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+.lyrics-theme-label { display: inline-flex; align-items: center; gap: 7px; color: #7a8391; font-size: 10px; font-weight: 600; }
+#lyrics-card-theme { max-width: 130px; min-height: 34px; padding: 6px 25px 6px 10px; border: 1px solid rgba(75,88,107,.15); border-radius: 11px; color: #343d4d; background: rgba(255,255,255,.76); font: inherit; font-size: 11px; cursor: pointer; }
+#btn-share-lyrics { min-height: 34px; border-radius: 11px; white-space: nowrap; }
+.lyrics-legal-note { margin-top: 9px; }
+
+/* Fine-grained progress controls remain easy to operate with a pointer or keyboard. */
+.np-bar { cursor: pointer; touch-action: pan-y; }
+.np-bar .progress-fill, #progress-fill { transition: width .08s linear; }
+.np-page-mode .np-controls .ctrl, .player .ctrl { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+.player .ctrl:focus-visible { outline: 2px solid rgba(74,95,133,.78); outline-offset: 3px; }
+
+@media (max-width: 760px) {
+  .queue-header { padding: 15px 14px 11px; }
+  #queue-list { padding-inline: 7px; }
+  .queue-entry-actions { opacity: 1; }
+  .queue-action { width: 29px; height: 30px; }
+  .lyrics-heading { align-items: stretch; }
+  .lyrics-card-actions { justify-content: space-between; width: 100%; }
+  .lyrics-theme-label { flex: 1; justify-content: space-between; }
+  #lyrics-card-theme { max-width: 150px; }
+  .np-page-mode .np-lyrics { max-height: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .queue-entry, .np-mode-switch button, .np-bar .progress-fill, #progress-fill { transition: none !important; }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .queue-panel, .np-lyrics, .np-mode-switch { -webkit-backdrop-filter: none; backdrop-filter: none; background: #f5f7fa; }
+}

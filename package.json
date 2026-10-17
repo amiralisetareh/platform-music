@@ -1,9 +1,18 @@
 {
   "name": "starmusics-prototype",
-  "version": "0.3.0",
+  "version": "0.9.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test"
+    "test": "node --test",
+    "build:catalog": "node scripts/export-catalog.mjs",
+    "start:api": "node scripts/start-api.mjs",
+    "verify": "npm run build:catalog && npm run audit:catalog && npm run audit:audio && node --check app.js && node --check config.js && node --check artwork-fallback.js && node --check catalog-service.js && node --check scripts/start-api.mjs && node --check scripts/start-web.mjs && node --check scripts/audit-catalog.mjs && node --check scripts/audit-audio-library.mjs && node --check server/api.mjs && node --check server/start.mjs && node scripts/check-design-css.mjs && npm test",
+    "audit:catalog": "node scripts/audit-catalog.mjs",
+    "audit:audio": "node scripts/audit-audio-library.mjs",
+    "start:web": "node scripts/start-web.mjs"
+  },
+  "engines": {
+    "node": ">=22.5.0"
   }
 }

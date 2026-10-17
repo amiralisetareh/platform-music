@@ -10,6 +10,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="design/phase-1-home-navigation.css" />
+  <link rel="stylesheet" href="design/phase-2-search-entity.css" />
+  <link rel="stylesheet" href="design/phase-3-listening-experience.css" />
+  <link rel="stylesheet" href="design/phase-4-community-profile.css" />
+  <link rel="stylesheet" href="design/phase-5-community-backend.css" />
 </head>
 <body>
   <div class="app">
@@ -18,31 +23,44 @@
         <span class="brand-icon">✦</span>
         <span class="brand-name">STARMUSICS</span>
       </div>
-      <nav class="nav-main">
+      <nav class="nav-main" aria-label="Main navigation">
         <a href="#" class="nav-item" data-view="home" aria-label="Home" title="Home">
-          <i class="las la-home" aria-hidden="true"></i>
+          <svg class="nav-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7M5.5 9v11h13V9M9.5 20v-6h5v6"/></svg>
           Home
         </a>
         <a href="#" class="nav-item" data-view="explore" aria-label="Explore" title="Explore">
-          <i class="las la-compass" aria-hidden="true"></i>
+          <svg class="nav-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.8 8.2-2.5 5.1-5.1 2.5 2.5-5.1z"/></svg>
           Explore
         </a>
+        <a href="#" class="nav-item" data-view="discussions" aria-label="Discussions" title="Discussions">
+          <svg class="nav-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.4a7.4 7.4 0 0 1-7.7 7.1 8.7 8.7 0 0 1-3.2-.6L4 20l1.4-4a6.8 6.8 0 0 1-1.2-3.8A7.4 7.4 0 0 1 12 5a7.6 7.6 0 0 1 8 6.4Z"/><path d="M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01" stroke-width="2.5"/></svg>
+          Discussions
+        </a>
+        <a href="#" class="nav-item" data-view="library" aria-label="Library" title="Library">
+          <svg class="nav-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5M3 16l9 5 9-5"/></svg>
+          Library
+        </a>
+        <a href="#" class="nav-item" data-view="playlists" aria-label="Playlists" title="Playlists">
+          <svg class="nav-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6h12M9 12h12M9 18h12"/><path d="M4 6h.01M4 12h.01M4 18h.01" stroke-width="3"/></svg>
+          Playlists
+        </a>
         <a href="#" class="nav-item" data-view="artists" aria-label="Artists" title="Artists">
-          <i class="las la-microphone" aria-hidden="true"></i>
+          <svg class="nav-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M9 21h6"/></svg>
           Artists
         </a>
         <a href="#" class="nav-item" data-view="albums" aria-label="Albums" title="Albums">
-          <i class="las la-compact-disc" aria-hidden="true"></i>
+          <svg class="nav-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.4"/><path d="M12 3v6M21 12h-6M12 21v-6M3 12h6" opacity=".55"/></svg>
           Albums
         </a>
         <a href="#" class="nav-item" data-view="genres" aria-label="Genres" title="Genres">
-          <i class="las la-music" aria-hidden="true"></i>
+          <svg class="nav-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
           Genres
         </a>
-        <a href="#" class="nav-item" data-view="discussions" aria-label="Discussions" title="Discussions">
-          <i class="las la-comments" aria-hidden="true"></i>
-          Discussions
-          <span class="badge">Owner</span>
+      </nav>
+      <nav class="nav-secondary" aria-label="Secondary navigation">
+        <a href="#" class="nav-item" data-view="about" aria-label="About us" title="About STARMUSICS">
+          <svg class="nav-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7h.01"/></svg>
+          About us
         </a>
       </nav>
       <div class="sidebar-footer">
@@ -51,100 +69,136 @@
         </div>
         <div class="tagline">Music, with intention.<br/><span>STARMUSICS</span></div>
       </div>
-      <a class="icons8-credit" href="https://icons8.com" target="_blank" rel="noopener noreferrer" title="Icons by Icons8">Icons8</a>
     </aside>
 
     <main class="main">
-      <header class="topbar">
-        <div class="search-wrap">
-          <i class="las la-search" aria-hidden="true"></i>
-          <input type="search" id="search-input" placeholder="Search artists, tracks, albums, lyrics..." aria-label="Search" autocomplete="off" />
-          <kbd>⌘ K</kbd>
-        </div>
-        <div class="topbar-actions">
-          <div class="language-control">
-            <button class="icon-btn language-trigger" id="btn-language" type="button" aria-label="Choose language" aria-expanded="false" title="Language">
-              <i class="las la-globe" aria-hidden="true"></i>
-            </button>
-            <div class="language-menu" id="language-menu" role="menu" hidden>
-              <p class="language-menu-title">Interface language</p>
-              <button type="button" role="menuitemradio" aria-checked="true" data-language="en"><span>English</span><span class="language-check">✓</span></button>
-              <button type="button" role="menuitemradio" aria-checked="false" data-language="ru"><span>Русский</span><span class="language-check">✓</span></button>
-              <button type="button" role="menuitemradio" aria-checked="false" data-language="fa"><span>فارسی</span><span class="language-check">✓</span></button>
+      <header class="topbar" aria-label="Toolbar">
+        <div class="topbar-cluster">
+          <div class="search-shell">
+            <svg class="toolbar-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg>
+            <input type="search" id="search-input" placeholder="Search" aria-label="Search" autocomplete="off" />
+            <div class="search-dropdown panel" id="search-popover" hidden>
+              <p class="search-hint" id="search-hint">Search tracks, artists, albums, playlists, and genres</p>
+              <div id="search-list"></div>
             </div>
           </div>
-          <button class="icon-btn" id="btn-notifications" title="Notifications" aria-label="Notifications">
-            <i class="las la-bell" aria-hidden="true"></i>
-            <span class="notif-dot"></span>
-          </button>
-          <button class="avatar" id="btn-profile" type="button" title="Profile" aria-label="User profile"><i class="las la-user-circle" aria-hidden="true"></i></button>
+          <div class="topbar-tools">
+            <div class="language-control">
+              <button class="tool-btn language-trigger" id="btn-language" type="button" aria-label="Choose language" aria-expanded="false" title="Language">
+                <svg class="toolbar-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 12h17M12 3c2.5 2.6 3.4 5.6 3.4 9s-.9 6.4-3.4 9c-2.5-2.6-3.4-5.6-3.4-9S9.5 5.6 12 3Z"/></svg>
+              </button>
+              <div class="language-menu" id="language-menu" role="menu" hidden>
+                <p class="language-menu-title">Interface language</p>
+                <button type="button" role="menuitemradio" aria-checked="true" data-language="en"><span>English</span><span class="language-check">✓</span></button>
+                <button type="button" role="menuitemradio" aria-checked="false" data-language="ru"><span>Русский</span><span class="language-check">✓</span></button>
+                <button type="button" role="menuitemradio" aria-checked="false" data-language="fa"><span>فارسی</span><span class="language-check">✓</span></button>
+              </div>
+            </div>
+            <button class="tool-btn" id="btn-profile" type="button" title="Profile" aria-label="User profile">
+              <svg class="toolbar-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg>
+            </button>
+          </div>
         </div>
       </header>
-
-      <div class="search-results" id="search-results" hidden>
-        <div class="search-results-inner">
-          <p class="search-hint">Type to search tracks, artists & playlists</p>
-          <div id="search-list"></div>
-        </div>
-      </div>
 
       <div class="content" id="main-content">
         <div class="view active" id="view-home">
           <section class="featured" aria-label="Featured playlist">
-            <div class="featured-bg"></div>
+            <div class="featured-bg" aria-hidden="true"></div>
             <div class="featured-content">
-              <span class="featured-label">Featured</span>
+              <span class="featured-label">STARMUSICS EDIT</span>
               <h1>Persian Trap</h1>
-              <p>The sound of a new generation.</p>
+              <p>A close-up of the new Persian sound, selected for discovery.</p>
+              <div class="featured-meta"><span class="featured-meta-mark" aria-hidden="true">✦</span><span>Curated by STARMUSICS</span></div>
               <div class="featured-actions">
                 <button class="btn-play" type="button" data-play="persian-trap">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                  Play
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  Explore mix
                 </button>
-                <button class="btn-add" type="button" title="Save playlist" aria-label="Save playlist">+</button>
+                <button class="btn-add" id="btn-save-featured" type="button" title="Save playlist" aria-label="Save Persian Trap playlist" aria-pressed="false">＋</button>
               </div>
             </div>
             <div class="featured-brand">STARMUSICS</div>
           </section>
-          <section class="section">
-            <div class="section-title">
-              <h2>Featured Playlists</h2>
-              <a href="#" class="see-all">See all</a>
+
+          <section class="home-genre-strip" aria-labelledby="home-genre-heading">
+            <div class="home-genre-header">
+              <div><p class="eyebrow">QUICK DISCOVERY</p><h2 id="home-genre-heading">Start with a sound</h2></div>
+              <a href="#" class="see-all" data-go-view="genres">Browse all</a>
             </div>
-            <div class="card-row" id="playlists-row"></div>
+            <div class="home-genre-chips">
+              <button type="button" class="home-genre-chip" data-open-genre="Persian Trap">Persian Trap <span aria-hidden="true">↗</span></button>
+              <button type="button" class="home-genre-chip" data-open-genre="Hip-Hop">Hip-Hop <span aria-hidden="true">↗</span></button>
+              <button type="button" class="home-genre-chip" data-open-genre="R&amp;B">R&amp;B <span aria-hidden="true">↗</span></button>
+              <button type="button" class="home-genre-chip" data-open-genre="Alternative">Alternative <span aria-hidden="true">↗</span></button>
+              <button type="button" class="home-genre-chip" data-open-genre="Electronic">Electronic <span aria-hidden="true">↗</span></button>
+            </div>
           </section>
-          <section class="section">
+
+          <section class="section home-section home-releases">
             <div class="section-title">
-              <h2>New Releases</h2>
-              <a href="#" class="see-all">See all</a>
+              <div class="section-heading-copy"><h2>New Releases</h2><p>Recent projects across the catalogue.</p></div>
+              <a href="#" class="see-all" data-go-view="albums">See all</a>
             </div>
             <div class="card-row" id="releases-row"></div>
           </section>
-          <section class="section">
+          <section class="section home-section home-playlists">
             <div class="section-title">
-              <h2>Popular Artists</h2>
-              <a href="#" class="see-all">See all</a>
+              <div class="section-heading-copy"><h2>Featured Playlists</h2><p>Curated paths into different scenes.</p></div>
+              <a href="#" class="see-all" data-go-view="explore">See all</a>
+            </div>
+            <div class="card-row" id="playlists-row"></div>
+          </section>
+          <section class="section home-section home-artists">
+            <div class="section-title">
+              <div class="section-heading-copy"><h2>Popular Artists</h2><p>People shaping the sound right now.</p></div>
+              <a href="#" class="see-all" data-go-view="artists">See all</a>
             </div>
             <div class="artists-row" id="artists-row"></div>
           </section>
-          <section class="section home-discussions">
-            <div class="section-title"><h2>Conversations worth having</h2><a href="#" class="see-all" data-go-view="discussions">View discussions</a></div>
+          <section class="section home-section home-discussions">
+            <div class="section-title">
+              <div class="section-heading-copy"><h2>Conversations worth having</h2><p>A few topics from the community.</p></div>
+              <a href="#" class="see-all" data-go-view="discussions">View discussions</a>
+            </div>
             <div class="home-discussion-grid" id="home-discussion-list"></div>
           </section>
         </div>
 
         <div class="view" id="view-explore">
-          <div class="empty-state">
-            <div class="empty-icon">✦</div>
-            <h2>Explore</h2>
-            <p>Discover new genres, moods, and scenes from around the world.</p>
-            <div class="genre-grid" id="genre-grid"></div>
-          </div>
+          <section class="discovery-hero" aria-labelledby="discovery-heading">
+            <div class="discovery-hero-copy">
+              <p class="eyebrow">STARMUSICS DISCOVERY</p>
+              <h1 id="discovery-heading">Find your next<br/><span>favorite sound.</span></h1>
+              <p class="page-description">Search tracks, artists, albums, and playlists — follow a sound wherever it leads.</p>
+            </div>
+            <div class="discovery-search-wrap">
+              <label class="discovery-search" for="discovery-search-input"><svg class="toolbar-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg><input id="discovery-search-input" type="search" aria-label="Search the music catalogue" placeholder="Search tracks, artists, albums, playlists, or genres…" autocomplete="off"/><kbd>Enter</kbd></label>
+              <div class="discovery-quicklinks" aria-label="Popular searches"><span>Explore a sound</span><button type="button" data-discovery-query="Kendrick Lamar">Kendrick Lamar</button><button type="button" data-discovery-query="R&B">R&amp;B</button><button type="button" data-discovery-query="Persian Trap">Persian Trap</button><button type="button" data-discovery-query="ambient">Ambient</button></div>
+            </div>
+            <div class="discovery-hero-art" aria-hidden="true"><span>DISCOVER<br/>SOMETHING<br/><strong>NEW.</strong></span><i class="discovery-art-orbit orbit-one"></i><i class="discovery-art-orbit orbit-two"></i><i class="discovery-art-orbit orbit-three"></i></div>
+          </section>
+          <section class="page-section discovery-results-section" id="discovery-results-section" hidden>
+            <div class="section-title"><h2 id="discovery-results-title">Search results</h2><span class="muted-label" id="discovery-results-count" aria-live="polite"></span></div>
+            <div class="discovery-filters" id="discovery-filter-bar" role="group" aria-label="Filter search results">
+              <button type="button" class="discovery-filter active" data-search-filter="all" aria-pressed="true">All <span data-filter-count="all">0</span></button>
+              <button type="button" class="discovery-filter" data-search-filter="track" aria-pressed="false">Tracks <span data-filter-count="track">0</span></button>
+              <button type="button" class="discovery-filter" data-search-filter="artist" aria-pressed="false">Artists <span data-filter-count="artist">0</span></button>
+              <button type="button" class="discovery-filter" data-search-filter="album" aria-pressed="false">Albums <span data-filter-count="album">0</span></button>
+              <button type="button" class="discovery-filter" data-search-filter="playlist" aria-pressed="false">Playlists <span data-filter-count="playlist">0</span></button>
+              <button type="button" class="discovery-filter" data-search-filter="genre" aria-pressed="false">Genres <span data-filter-count="genre">0</span></button>
+            </div>
+            <div class="discovery-results" id="discovery-results" aria-live="polite"></div>
+          </section>
+          <section class="page-section discovery-browse"><div class="section-title"><h2>Browse by sound</h2><span class="muted-label">Start with a feeling</span></div><div class="genre-grid" id="genre-grid"></div></section>
+          <section class="page-section discovery-curated"><div class="section-title"><h2>Made for discovery</h2><span class="muted-label">Curated paths into the catalogue</span></div><div class="card-row" id="discovery-playlists-row"></div></section>
         </div>
         <div class="view" id="view-library">
           <section class="page-heading"><p class="eyebrow">YOUR MUSIC, YOUR SPACE</p><h1>Your Library</h1><p class="page-description">Saved music and collections, kept together.</p></section>
           <section class="page-section"><div class="section-title"><h2>Liked songs</h2><a href="#" class="see-all" data-go-view="liked">View all</a></div><div class="track-list" id="library-liked-list"></div><p class="page-description" id="library-liked-empty">Like a track from the player to start your collection.</p></section>
           <section class="page-section"><div class="section-title"><h2>Your playlists</h2><a href="#" class="see-all" data-go-view="playlists">View all</a></div><div class="card-row" id="library-playlists-row"></div></section>
+          <section class="page-section library-saved-albums" id="library-saved-albums-section" hidden><div class="section-title"><div class="section-heading-copy"><h2>Saved albums</h2><p>Albums you chose to keep in your library.</p></div><span class="muted-label" id="saved-albums-count">0 albums</span></div><div class="saved-albums-grid" id="library-saved-albums-row"></div></section>
+          <section class="page-section library-saved-picks" id="library-saved-picks-section" hidden><div class="section-title"><div class="section-heading-copy"><h2>Saved editorial picks</h2><p>Selections you chose to keep.</p></div><span class="muted-label">Saved on this device</span></div><div id="library-saved-picks-row"></div></section>
         </div>
         <div class="view" id="view-liked">
           <div class="empty-state">
@@ -186,27 +240,62 @@
           <section class="page-section"><div class="track-list" id="recent-list"></div><p class="page-description" id="recent-empty">Tracks you play will appear here during this session.</p></section>
         </div>
         <div class="view" id="view-discussions">
-          <section class="page-heading"><p class="eyebrow">LISTEN. THINK. DISCUSS.</p><h1>Discussions</h1><p class="page-description">A place for thoughtful conversations about music, scenes, and culture. Topics are created by the STARMUSICS owner; listeners can join in.</p></section>
+          <section class="community-hero">
+            <div class="community-hero-copy">
+              <p class="eyebrow">LISTEN. THINK. DISCUSS.</p>
+              <h1>Conversations about the music.</h1>
+              <p>Thoughtful discussions about artists, albums, scenes and the meaning behind the sound. Topics are curated by STARMUSICS; listeners can contribute to the conversation.</p>
+              <div class="community-hero-meta"><span class="community-owner-mark" aria-hidden="true">✦</span><span>Curated topics · Respectful replies · Music first</span></div>
+            </div>
+            <div class="community-hero-mark" aria-hidden="true"><span>♪</span><i></i><i></i><i></i></div>
+          </section>
+          <section class="community-stats" aria-label="Community overview">
+            <article><span class="community-stat-icon" aria-hidden="true">✦</span><div><strong id="discussion-stat-topics">0</strong><span>Curated topics</span></div></article>
+            <article><span class="community-stat-icon" aria-hidden="true">↗</span><div><strong id="discussion-stat-replies">0</strong><span>Visible comments</span></div></article>
+            <article><span class="community-stat-icon" aria-hidden="true">◌</span><div><strong class="community-source-state">Local</strong><span id="community-source-label">Local prototype · this device only</span></div></article>
+          </section>
+          <section class="community-moderation-panel" id="community-moderation-panel" hidden aria-labelledby="community-moderation-heading">
+            <div class="community-moderation-heading"><div><p class="eyebrow">TRUST & SAFETY</p><h2 id="community-moderation-heading">Community moderation</h2><p>Review member reports and manage the discussion space. Every moderation action is recorded by the server.</p></div><button class="btn-secondary" id="btn-refresh-community-reports" type="button">Refresh reports</button></div>
+            <section id="community-topic-create-section" hidden class="community-topic-create-section" aria-labelledby="community-topic-create-heading">
+              <h3 id="community-topic-create-heading">Create a curated topic</h3>
+              <form id="community-topic-create-form" class="community-topic-create-form"><div><label for="community-topic-title">Topic title</label><input id="community-topic-title" type="text" maxlength="120" required placeholder="Start a music conversation" /></div><div><label for="community-topic-description">Description</label><textarea id="community-topic-description" maxlength="500" rows="2" placeholder="Set a constructive direction for the discussion"></textarea></div><button class="btn-primary" id="btn-create-community-topic" type="submit">Publish topic</button></form>
+            </section>
+            <div class="community-reports-heading"><h3>Member reports</h3><span class="muted-label">Private to owner and moderators</span></div>
+            <div class="community-report-list" id="community-report-list" aria-live="polite"><p class="moderation-loading">Reports appear here when a member submits one.</p></div>
+          </section>
           <section class="discussion-layout page-section">
-            <div><div class="section-title"><h2>Topics</h2><span class="muted-label">Curated by STARMUSICS</span></div><ul class="discussion-page-list" id="discussion-page-list"></ul></div>
-            <div class="discussion-thread"><div class="section-title"><h2 id="discussion-thread-title">Choose a topic</h2></div><div class="comments-list" id="comments-list"></div><form class="comment-form" id="comment-form"><label for="comment-input">Add to the conversation</label><textarea id="comment-input" maxlength="800" placeholder="Keep it thoughtful. Share your perspective…" required></textarea><button class="btn-primary" type="submit">Post comment</button><p class="muted-label local-data-note">Prototype only: comments are stored in this browser, not shared with other listeners.</p></form></div>
+            <div class="discussion-topic-column">
+              <div class="section-title community-section-title"><div><p class="eyebrow">THE COMMUNITY</p><h2>Explore topics</h2></div><span class="muted-label" id="discussion-result-count">Topics</span></div>
+              <label class="discussion-search-shell" for="discussion-search"><span aria-hidden="true">⌕</span><input id="discussion-search" type="search" maxlength="100" placeholder="Find a conversation…" autocomplete="off" /><kbd>/</kbd></label>
+              <div class="discussion-sort-tabs" role="group" aria-label="Sort discussions"><button type="button" data-discussion-sort="active" aria-pressed="true">Most active</button><button type="button" data-discussion-sort="latest" aria-pressed="false">Recent</button><button type="button" data-discussion-sort="all" aria-pressed="false">All topics</button></div>
+              <ul class="discussion-page-list" id="discussion-page-list" aria-label="Discussion topics"></ul>
+              <p class="discussion-list-empty" id="discussion-list-empty" hidden>No topics match that search. Try another keyword.</p>
+              <p class="muted-label discussion-owner-note"><span aria-hidden="true">✦</span> Only the project owner can create new topics.</p>
+            </div>
+            <div class="discussion-thread" aria-labelledby="discussion-thread-title">
+              <div class="discussion-thread-head"><div><p class="eyebrow">SELECTED CONVERSATION</p><h2 id="discussion-thread-title">Choose a topic</h2><p id="discussion-thread-description" class="discussion-thread-description">Select a topic to read and join the discussion.</p></div><span class="thread-live-label"><i></i> OPEN</span></div>
+              <div class="discussion-thread-toolbar"><span id="discussion-reply-summary">Replies</span><div class="comment-sort-tabs" role="group" aria-label="Comment order"><button type="button" data-comment-sort="oldest" aria-pressed="true">Oldest</button><button type="button" data-comment-sort="newest" aria-pressed="false">Newest</button></div></div>
+              <div class="comments-list" id="comments-list" aria-live="polite"></div>
+              <form class="comment-form" id="comment-form"><div class="comment-composer-avatar" id="comment-composer-avatar" aria-hidden="true">L</div><div class="comment-composer-body"><label for="comment-input">Add to the conversation</label><textarea id="comment-input" maxlength="800" placeholder="What stood out to you? Keep it thoughtful…" required></textarea><div class="comment-composer-footer"><span class="comment-composer-hint">Be constructive. Critique ideas, not people.</span><button class="btn-primary" type="submit">Post comment <span aria-hidden="true">↗</span></button></div></div><p class="muted-label local-data-note" id="community-composer-note">Prototype only: comments and reactions are saved in this browser and are not shared with other listeners.</p></form>
+            </div>
           </section>
         </div>
 
         <div class="view" id="view-profile">
-          <section class="profile-panel">
-            <div class="profile-avatar" aria-hidden="true">♪</div>
+          <section class="profile-panel profile-hero-panel">
+            <div class="profile-avatar profile-avatar-large" id="profile-avatar-initials" aria-hidden="true">L</div>
             <div class="profile-details">
-              <p class="eyebrow">YOUR SPACE</p>
-              <h1 id="profile-name">Listener</h1>
-              <p class="page-description">Your listening identity, library, and milestones.</p>
-              <label class="profile-label" for="profile-display-name">Display name</label>
-              <input id="profile-display-name" class="profile-name-input" type="text" maxlength="32" placeholder="Choose a display name" autocomplete="nickname" />
-              <label class="profile-label" for="profile-bio">Biography</label>
-              <textarea id="profile-bio" maxlength="180" placeholder="A little about your taste in music…"></textarea>
+              <div class="profile-identity-heading"><div><p class="eyebrow">YOUR SPACE</p><h1 id="profile-name">Listener</h1><p class="page-description">Your listening identity, library, and milestones.</p></div><span class="profile-local-badge"><i></i> Listener profile</span></div>
+              <div class="profile-stats" aria-label="Your activity"><article><strong id="profile-stat-liked">0</strong><span>Tracks liked</span></article><article><strong id="profile-stat-playlists">0</strong><span>Playlists</span></article><article><strong id="profile-stat-comments">0</strong><span>Comments</span></article><article><strong id="profile-stat-albums">0</strong><span>Albums saved</span></article></div>
+              <div class="profile-edit-grid"><div><label class="profile-label" for="profile-display-name">Display name</label><input id="profile-display-name" class="profile-name-input" type="text" maxlength="32" placeholder="Choose a display name" autocomplete="nickname" /></div><div><label class="profile-label" for="profile-bio">Biography</label><textarea id="profile-bio" maxlength="180" placeholder="A little about your taste in music…"></textarea></div></div>
               <div class="profile-actions">
                 <span class="character-count bio-character-count">0/180</span>
                 <button class="btn-primary" id="btn-save-profile" type="button">Save profile</button>
+              </div>
+              <div class="account-profile-strip" id="account-profile-strip">
+                <span class="account-status-dot" aria-hidden="true"></span>
+                <span id="account-profile-status" role="status">Local profile · this device only</span>
+                <button class="btn-secondary account-manage-button" id="btn-account-manage" type="button">Account</button>
               </div>
             </div>
           </section>
@@ -232,6 +321,35 @@
             <div class="section-title"><div><p class="eyebrow">YOUR COLLECTION</p><h2>Your playlists</h2></div></div>
             <div class="card-row" id="user-playlists-row"></div>
             <button class="btn-secondary" id="btn-create-playlist-main" type="button">＋ Create playlist</button>
+          </section>
+        </div>
+
+        <div class="view" id="view-about">
+          <section class="about-hero panel about-panel">
+            <p class="eyebrow">STARMUSICS</p>
+            <h1>About us</h1>
+            <p class="about-lead">Music, with intention — a premium discovery experience built with care for listeners who want clarity, craft, and community.</p>
+          </section>
+          <section class="about-grid">
+            <article class="panel about-panel">
+              <h2>The developer</h2>
+              <p>STARMUSICS is designed and engineered as an independent product prototype. The goal is a refined, full-screen music interface — not a generic clone — with glass surfaces, deliberate motion, and honest local functionality until a real backend is connected.</p>
+              <p>If you are the product owner, replace this section with your name, photo, bio, and contact links.</p>
+            </article>
+            <article class="panel about-panel">
+              <h2>What we build</h2>
+              <ul class="about-list">
+                <li>Discovery for artists, albums, genres, and discussions</li>
+                <li>A cinematic player with dock, full-page, and mini modes</li>
+                <li>English, Russian, and Persian localization with RTL</li>
+                <li>Local collections, playlists, and listening history (browser prototype)</li>
+              </ul>
+            </article>
+            <article class="panel about-panel">
+              <h2>Contact &amp; notes</h2>
+              <p>STARMUSICS remains a prototype. Without an account, personal data stays in this browser; signed-in profiles, liked tracks, and playlists can sync through the Phase 7 development API. Licensed catalogue audio, shared discussions, and production-grade identity still require additional infrastructure and rights clearance.</p>
+              <p class="about-meta">Icons by <a href="https://icons8.com" target="_blank" rel="noopener noreferrer">Icons8</a> · Sample artwork for layout only</p>
+            </article>
           </section>
         </div>
       </div>
@@ -267,17 +385,27 @@
     </aside>
 
     <nav class="mobile-nav" aria-label="Primary navigation">
-      <button class="mobile-nav-item active" type="button" data-view="home" aria-label="Home"><i class="las la-home mobile-nav-icon" aria-hidden="true"></i><span>Home</span></button>
-      <button class="mobile-nav-item" type="button" data-view="explore" aria-label="Explore"><i class="las la-compass mobile-nav-icon" aria-hidden="true"></i><span>Explore</span></button>
-      <button class="mobile-nav-item" type="button" data-view="artists" aria-label="Artists"><i class="las la-microphone mobile-nav-icon" aria-hidden="true"></i><span>Artists</span></button>
-      <button class="mobile-nav-item" type="button" data-view="discussions" aria-label="Discussions"><i class="las la-comments mobile-nav-icon" aria-hidden="true"></i><span>Discuss</span></button>
-      <button class="mobile-nav-item" type="button" data-view="albums" aria-label="Albums"><i class="las la-compact-disc mobile-nav-icon" aria-hidden="true"></i><span>Albums</span></button>
+      <button class="mobile-nav-item active" type="button" data-view="home" aria-label="Home" aria-current="page">
+        <svg class="mobile-nav-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7"/><path d="M5.5 9v11h13V9"/><path d="M9.5 20v-6h5v6"/></svg><span>Home</span>
+      </button>
+      <button class="mobile-nav-item" type="button" data-view="explore" aria-label="Explore">
+        <svg class="mobile-nav-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.8 8.2-2.5 5.1-5.1 2.5 2.5-5.1z"/></svg><span>Explore</span>
+      </button>
+      <button class="mobile-nav-item" type="button" data-view="library" aria-label="Library">
+        <svg class="mobile-nav-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16M4 11.5h16M4 16.5h11"/><path d="M4 3.5h16v17H4z" opacity=".55"/></svg><span>Library</span>
+      </button>
+      <button class="mobile-nav-item" type="button" data-view="playlists" aria-label="Playlists">
+        <svg class="mobile-nav-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h12M4 11h12M4 16h8"/><path d="M18 13.5v6.2l2.8-1.5v-6.1z"/></svg><span>Playlists</span>
+      </button>
+      <button class="mobile-nav-item" type="button" data-view="discussions" aria-label="Discussions">
+        <svg class="mobile-nav-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.4a7.4 7.4 0 0 1-7.7 7.1 8.7 8.7 0 0 1-3.2-.6L4 20l1.4-4a6.8 6.8 0 0 1-1.2-3.8A7.4 7.4 0 0 1 12 5a7.6 7.6 0 0 1 8 6.4Z"/><path d="M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01" stroke-width="2.5"/></svg><span>Discuss</span>
+      </button>
     </nav>
 
     <div class="queue-panel" id="queue-panel" hidden>
       <div class="queue-header">
-        <h3>Queue</h3>
-        <button class="icon-btn" id="btn-close-queue" aria-label="Close queue">×</button>
+        <div><p class="eyebrow">UP NEXT</p><h3>Queue</h3><p class="queue-header-note" id="queue-summary">Manage your listening order.</p></div>
+        <div class="queue-header-actions"><button class="queue-clear" id="btn-clear-queue" type="button">Clear</button><button class="icon-btn" id="btn-close-queue" type="button" aria-label="Close queue">×</button></div>
       </div>
       <div class="queue-now">
         <span class="queue-label">Now playing</span>
@@ -289,11 +417,11 @@
       </div>
     </div>
 
-    <div class="now-playing-modal" id="now-playing-modal" hidden>
+    <div class="now-playing-modal" id="now-playing-modal" role="dialog" aria-modal="true" aria-labelledby="np-title" aria-hidden="true" hidden tabindex="-1">
       <div class="np-backdrop"></div>
       <div class="np-sheet" id="np-sheet">
         <button class="np-close" id="btn-close-np" aria-label="Close">×</button>
-        <div class="np-mode-switch" aria-label="Player mode"><button type="button" data-player-mode="dock">Dock</button><button type="button" data-player-mode="page" class="active">Page</button><button type="button" data-player-mode="mini">Mini</button></div>
+        <div class="np-mode-switch" role="group" aria-label="Player mode"><button type="button" data-player-mode="dock" aria-pressed="false">Dock</button><button type="button" data-player-mode="page" class="active" aria-pressed="true">Full player</button><button type="button" data-player-mode="mini" aria-pressed="false">Mini</button></div>
         <div class="np-art" id="np-art">
           <div class="np-art-glint" aria-hidden="true"></div>
           <div class="np-art-visualizer" aria-hidden="true"><i style="--bar-delay:0.000s;--bar-height:22%"></i><i style="--bar-delay:0.035s;--bar-height:39%"></i><i style="--bar-delay:0.070s;--bar-height:56%"></i><i style="--bar-delay:0.105s;--bar-height:73%"></i><i style="--bar-delay:0.140s;--bar-height:25%"></i><i style="--bar-delay:0.175s;--bar-height:42%"></i><i style="--bar-delay:0.210s;--bar-height:59%"></i><i style="--bar-delay:0.245s;--bar-height:76%"></i><i style="--bar-delay:0.280s;--bar-height:28%"></i><i style="--bar-delay:0.315s;--bar-height:45%"></i><i style="--bar-delay:0.350s;--bar-height:62%"></i><i style="--bar-delay:0.385s;--bar-height:79%"></i><i style="--bar-delay:0.420s;--bar-height:31%"></i><i style="--bar-delay:0.455s;--bar-height:48%"></i><i style="--bar-delay:0.490s;--bar-height:65%"></i><i style="--bar-delay:0.525s;--bar-height:82%"></i><i style="--bar-delay:0.560s;--bar-height:34%"></i><i style="--bar-delay:0.595s;--bar-height:51%"></i><i style="--bar-delay:0.630s;--bar-height:68%"></i><i style="--bar-delay:0.665s;--bar-height:85%"></i><i style="--bar-delay:0.700s;--bar-height:37%"></i><i style="--bar-delay:0.735s;--bar-height:54%"></i><i style="--bar-delay:0.770s;--bar-height:71%"></i><i style="--bar-delay:0.805s;--bar-height:23%"></i><i style="--bar-delay:0.840s;--bar-height:40%"></i><i style="--bar-delay:0.875s;--bar-height:57%"></i><i style="--bar-delay:0.910s;--bar-height:74%"></i><i style="--bar-delay:0.945s;--bar-height:26%"></i></div>
@@ -302,7 +430,7 @@
         <p id="np-artist">Yeat</p>
         <div class="np-progress">
           <span id="np-time-cur">0:00</span>
-          <div class="progress-bar np-bar"><div class="progress-fill" style="width:0%"></div></div>
+          <div class="progress-bar np-bar" id="np-progress-bar" role="slider" aria-label="Playback progress" aria-valuetext="0:00 of 0:00" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" tabindex="0"><div class="progress-fill" style="width:0%"></div></div>
           <span id="np-time-tot">0:00</span>
         </div>
         <div class="np-controls">
@@ -312,21 +440,25 @@
           <button class="ctrl" data-action="next">⏭</button>
           <button class="ctrl" data-action="repeat">↻</button>
         </div>
-        <div class="np-lyrics" id="np-lyrics">
-          <div class="lyrics-heading"><span>LYRICS</span><button type="button" id="btn-share-lyrics" class="btn-secondary">Share lyrics card</button></div>
-          <p class="lyrics-placeholder">Lyrics haven’t been added for this track. Add authorized lyrics in the track data to display them here.</p>
-          <p class="lyrics-legal-note">Share original or licensed lyrics, or permitted excerpts with attribution.</p>
+        <div class="np-player-tools" aria-label="Player tools">
+          <button type="button" class="np-tool-button" id="btn-np-queue">Queue <span id="np-queue-count">4</span></button>
+          <label class="np-volume-control" for="np-volume-range"><span>Volume</span><input type="range" id="np-volume-range" min="0" max="100" step="1" value="70" aria-label="Volume" /></label>
         </div>
-        <div class="np-source-actions"><button type="button" class="btn-secondary" id="btn-add-audio">Choose audio file</button><span>Play audio you have permission to use.</span></div>
+        <div class="np-lyrics" id="np-lyrics">
+          <div class="lyrics-heading"><span>LYRICS & SHARE CARD</span><div class="lyrics-card-actions"><label class="lyrics-theme-label" for="lyrics-card-theme">Card style<select id="lyrics-card-theme" aria-label="Share card style"><option value="glass">Clear glass</option><option value="afterglow">Afterglow</option><option value="paper">Paper</option></select></label><button type="button" id="btn-share-lyrics" class="btn-secondary">Export track card</button></div></div>
+          <p class="lyrics-placeholder" id="lyrics-placeholder">Lyrics haven’t been added for this track. The exported card will show track information only until authorized lyrics are available.</p>
+          <p class="lyrics-legal-note">Only original or properly licensed lyrics should be added and shared. The theme changes card styling, not lyric permissions.</p>
+        </div>
+        <div class="np-source-actions"><label class="audio-rights-confirm"><input type="checkbox" id="audio-rights-confirm" /><span>I have permission to use this audio file.</span></label><button type="button" class="btn-secondary" id="btn-add-audio">Choose audio file</button><span>Local files are used only in this browser session and are not uploaded.</span></div>
       </div>
     </div>
 
-    <section class="entity-detail" id="entity-detail" hidden aria-live="polite">
+    <section class="entity-detail" id="entity-detail" hidden aria-modal="true" role="dialog" aria-labelledby="entity-title" aria-describedby="entity-description">
       <div class="entity-detail-backdrop" data-close-entity></div>
-      <article class="entity-detail-sheet">
-        <button class="entity-close icon-btn" type="button" data-close-entity aria-label="Close details">×</button>
-        <div class="entity-hero-art" id="entity-art"></div>
-        <div class="entity-detail-copy"><p class="eyebrow" id="entity-kicker">STARMUSICS COLLECTION</p><h2 id="entity-title">Artist</h2><p id="entity-description" class="page-description"></p><div class="entity-meta" id="entity-meta"></div><div class="section-title"><h3 id="entity-list-title">Popular tracks</h3></div><div class="track-list" id="entity-track-list"></div><div class="section-title"><h3>Related discovery</h3></div><div class="entity-related" id="entity-related"></div></div>
+      <article class="entity-detail-sheet" id="entity-detail-sheet" tabindex="-1">
+        <button class="entity-close icon-btn" type="button" data-close-entity aria-label="Close details" title="Close details">×</button>
+        <div class="entity-art-column"><div class="entity-hero-art" id="entity-art"><span class="entity-art-watermark" aria-hidden="true">STARMUSICS</span></div><p class="entity-art-note" id="entity-art-note">Catalogue artwork</p></div>
+        <div class="entity-detail-copy"><p class="eyebrow" id="entity-kicker">STARMUSICS COLLECTION</p><h2 id="entity-title">Artist</h2><p id="entity-description" class="page-description"></p><div class="entity-meta" id="entity-meta" aria-label="Catalogue information"></div><button class="btn-secondary entity-save-album" id="btn-save-entity-album" type="button" hidden aria-pressed="false">＋ Save album</button><div class="section-title entity-track-heading"><div><p class="eyebrow">LISTENING DETAILS</p><h3 id="entity-list-title">Popular tracks</h3></div></div><div class="track-list" id="entity-track-list"></div><div class="section-title entity-related-heading"><div><p class="eyebrow">KEEP EXPLORING</p><h3>Related discovery</h3></div></div><div class="entity-related" id="entity-related"></div></div>
       </article>
     </section>
     <audio id="audio-engine" preload="metadata"></audio>
@@ -339,35 +471,35 @@
           <span id="player-artist">Yeat</span>
         </div>
         <button class="ctrl like-btn" id="btn-like" title="Like" aria-label="Like track">
-          <i class="las la-heart" aria-hidden="true"></i>
+          <svg class="player-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 8.7c0 4.2-8.3 9.3-8.3 9.3S3.7 12.9 3.7 8.7A4.2 4.2 0 0 1 12 6.9a4.2 4.2 0 0 1 8.3 1.8Z"/></svg>
         </button>
       </div>
       <div class="mini-player-actions" aria-label="Mini player controls">
-        <button class="mini-glass-control" id="btn-mini-restore" type="button" title="Return to previous player mode" aria-label="Return to previous player mode"><i class="las la-external-link-square-alt" aria-hidden="true"></i></button>
-        <button class="mini-glass-control mini-glass-play" id="btn-mini-play" type="button" title="Play" aria-label="Play"><i class="las la-play" aria-hidden="true"></i></button>
-        <button class="mini-glass-control" id="btn-mini-expand" type="button" title="Expand player" aria-label="Expand player"><i class="las la-expand" aria-hidden="true"></i></button>
+        <button class="mini-glass-control" id="btn-mini-restore" type="button" title="Return to previous player mode" aria-label="Return to previous player mode"><svg class="player-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></button>
+        <button class="mini-glass-control mini-glass-play" id="btn-mini-play" type="button" title="Play" aria-label="Play"><svg class="player-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 5.25v13.5L19 12 8.5 5.25Z" fill="currentColor" stroke="none"/></svg></button>
+        <button class="mini-glass-control" id="btn-mini-expand" type="button" title="Expand player" aria-label="Expand player"><svg class="player-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4H4v4M16 4h4v4M4 16v4h4M20 16v4h-4"/></svg></button>
       </div>
       <div class="player-controls">
         <div class="controls-row">
           <button class="ctrl" id="btn-shuffle" title="Shuffle" aria-label="Shuffle">
-            <i class="las la-random" aria-hidden="true"></i>
+            <svg class="player-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 3h5v5M4 5h2.5c4.5 0 6.5 9 11 9H21M16 16l5 5v-5M4 19h2.5c1.6 0 2.8-1 3.8-2.4M14 7c1-1.3 2.1-2 3.5-2H21"/></svg>
           </button>
           <button class="ctrl" id="btn-prev" title="Previous" aria-label="Previous track">
-            <i class="las la-step-backward" aria-hidden="true"></i>
+            <svg class="player-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5v14M19 5 8 12l11 7z"/></svg>
           </button>
           <button class="ctrl play" id="btn-play" title="Play" aria-label="Play">
-            <i class="las la-play" aria-hidden="true"></i>
+            <svg class="player-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 5.25v13.5L19 12 8.5 5.25Z" fill="currentColor" stroke="none"/></svg>
           </button>
           <button class="ctrl" id="btn-next" title="Next" aria-label="Next track">
-            <i class="las la-step-forward" aria-hidden="true"></i>
+            <svg class="player-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 5v14M5 5l11 7-11 7z"/></svg>
           </button>
           <button class="ctrl" id="btn-repeat" title="Repeat" aria-label="Repeat">
-            <i class="las la-redo-alt" aria-hidden="true"></i>
+            <svg class="player-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 2l4 4-4 4M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4M21 13v2a3 3 0 0 1-3 3H3"/></svg>
           </button>
         </div>
         <div class="progress-row">
           <span id="time-current">0:00</span>
-          <div class="progress-bar" id="progress-bar" role="slider" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" tabindex="0">
+          <div class="progress-bar" id="progress-bar" role="slider" aria-label="Playback progress" aria-valuetext="0:00 of 0:00" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" tabindex="0">
             <div class="progress-fill" id="progress-fill" style="width:0%"></div>
             <div class="progress-thumb" id="progress-thumb" style="left:0%"></div>
           </div>
@@ -376,19 +508,19 @@
       </div>
       <div class="player-extra">
         <button class="ctrl" id="btn-volume" title="Volume" aria-label="Volume">
-          <i class="las la-volume-up" aria-hidden="true"></i>
+          <svg class="player-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M16 9a5 5 0 0 1 0 6M18.5 6.5a8.5 8.5 0 0 1 0 11"/></svg>
         </button>
-        <div class="volume-bar" id="volume-bar" role="slider" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" tabindex="0">
+        <div class="volume-bar" id="volume-bar" role="slider" aria-label="Volume" aria-valuetext="70 percent" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" tabindex="0">
           <div class="volume-fill" id="volume-fill" style="width:70%"></div>
         </div>
         <button class="ctrl" id="btn-queue" title="Queue" aria-label="Queue">
-          <i class="las la-list" aria-hidden="true"></i>
+          <svg class="player-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 11h16M4 16h10M4 21h10"/></svg>
         </button>
         <button class="ctrl" id="btn-lyrics" title="Lyrics" aria-label="Lyrics">
-          <i class="las la-align-left" aria-hidden="true"></i>
+          <svg class="player-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h5"/></svg>
         </button>
         <button class="ctrl" id="btn-player-mode" type="button" title="Switch player mode" aria-label="Switch player mode">
-          <i class="las la-window-maximize" aria-hidden="true"></i>
+          <svg class="player-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"/></svg>
         </button>
         <button class="now-playing-btn" id="btn-now-playing" type="button">
           <span class="eq-mini" id="eq-mini" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -398,6 +530,58 @@
     </footer>
   </div>
   <div class="toast" id="toast" hidden></div>
+  <dialog class="account-dialog" id="account-dialog" aria-labelledby="account-dialog-title">
+    <div class="account-dialog-surface">
+      <div class="account-dialog-heading">
+        <div><p class="eyebrow">STARMUSICS ACCOUNT</p><h2 id="account-dialog-title">Your account</h2></div>
+        <button class="account-close" id="btn-account-close" type="button" aria-label="Close account dialog">×</button>
+      </div>
+      <p class="page-description account-intro">Sign in to sync your profile, liked tracks, and playlists across devices. The music player and discovery pages remain available without an account.</p>
+      <form id="account-form" class="account-form">
+        <label for="account-email">Email address</label>
+        <input id="account-email" name="email" type="email" autocomplete="email" maxlength="254" required placeholder="you@example.com" />
+        <label for="account-password">Password</label>
+        <input id="account-password" name="password" type="password" autocomplete="current-password" minlength="12" maxlength="256" required placeholder="At least 12 characters" />
+        <div class="account-form-actions">
+          <button class="btn-primary" id="btn-account-login" type="submit">Sign in</button>
+          <button class="btn-secondary" id="btn-account-register" type="button">Create account</button>
+        </div>
+        <p class="account-message" id="account-message" role="status" aria-live="polite"></p>
+      </form>
+      <section class="account-signed-in" id="account-signed-in" hidden>
+        <div class="account-user-mark" aria-hidden="true">✓</div>
+        <h3 id="account-signed-in-email">Signed in</h3>
+        <p class="page-description" id="account-sync-status">Your account data is syncing.</p>
+        <div class="account-form-actions account-session-actions">
+          <button class="btn-secondary" id="btn-account-retry-sync" type="button" hidden>Retry sync</button>
+          <button class="btn-secondary account-signout" id="btn-account-logout" type="button">Sign out</button>
+        </div>
+        <section id="owner-claim-panel" class="owner-claim-panel" hidden aria-labelledby="owner-claim-heading">
+          <h4 id="owner-claim-heading">First-time installation owner setup</h4>
+          <p>Available only when the server has no owner. Use the one-time secret configured by the site operator.</p>
+          <label for="owner-claim-token">Owner setup secret</label>
+          <input id="owner-claim-token" type="password" autocomplete="off" minlength="32" maxlength="256" placeholder="Paste the one-time secret" />
+          <button class="btn-secondary" id="btn-claim-owner" type="button">Claim owner role</button>
+        </section>
+      </section>
+      <p class="account-footnote">Use a unique password. This prototype has no password reset or email verification yet; do not reuse a password from another service.</p>
+    </div>
+  </dialog>
+
+  <dialog class="account-dialog community-modal" id="report-dialog" aria-labelledby="report-dialog-title">
+    <div class="account-dialog-surface"><div class="account-dialog-heading"><div><p class="eyebrow">COMMUNITY SAFETY</p><h2 id="report-dialog-title">Report a comment</h2></div><button class="account-dialog-close" type="button" data-close-report aria-label="Close report form">×</button></div>
+      <p class="page-description">Reports are private to the moderation team. Use them for specific, good-faith concerns.</p>
+      <form id="report-form"><label for="report-reason">Reason</label><select id="report-reason" required><option value="spam">Spam or promotional abuse</option><option value="harassment">Harassment or personal attack</option><option value="hate">Hateful or abusive content</option><option value="copyright">Copyright or rights concern</option><option value="other">Other concern</option></select><label for="report-details">Details (optional)</label><textarea id="report-details" maxlength="300" rows="3" placeholder="Add context for the moderation team"></textarea><div class="account-form-actions"><button class="btn-secondary" type="button" data-close-report>Cancel</button><button class="btn-primary" id="btn-submit-report" type="submit">Submit report</button></div></form>
+    </div>
+  </dialog>
+  <dialog class="account-dialog community-modal public-profile-modal" id="public-profile-dialog" aria-labelledby="public-profile-name">
+    <div class="account-dialog-surface"><div class="account-dialog-heading"><div><p class="eyebrow">COMMUNITY MEMBER</p><h2 id="public-profile-name">Listener</h2></div><button class="account-dialog-close" type="button" data-close-public-profile aria-label="Close member profile">×</button></div><div class="public-profile-identity"><span class="public-profile-avatar" id="public-profile-avatar" aria-hidden="true">L</span><div><span id="public-profile-role">Community member</span><p id="public-profile-comments">0 public comments</p></div></div><p id="public-profile-bio" class="public-profile-bio">This listener has not added a biography yet.</p><div class="account-form-actions"><button class="btn-secondary" type="button" id="btn-toggle-member-moderator" hidden>Grant moderator</button><button class="btn-secondary" type="button" data-close-public-profile>Close</button></div></div>
+  </dialog>
+
+  <script src="config.js"></script>
+  <script src="artwork-fallback.js"></script>
+  <script src="catalog-data.js"></script>
+  <script src="catalog-service.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

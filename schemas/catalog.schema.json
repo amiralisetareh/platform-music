@@ -1,0 +1,510 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://starmusics.invalid/schemas/catalog.schema.json",
+  "title": "STARMUSICS Catalog",
+  "description": "Metadata catalogue. Listing metadata does not grant the right to distribute or stream audio.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "catalogId",
+    "policy",
+    "artists",
+    "albums",
+    "tracks",
+    "playlists",
+    "genres",
+    "audioSources",
+    "editorial",
+    "discussionTopics"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "catalogId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "policy": {
+      "type": "object",
+      "required": [
+        "catalogMode",
+        "audioDelivery",
+        "defaultRightsStatus",
+        "allowUnverifiedRemoteAudio"
+      ],
+      "properties": {
+        "catalogMode": {
+          "const": "metadata-first"
+        },
+        "audioDelivery": {
+          "const": "allowlisted-sources-only"
+        },
+        "defaultRightsStatus": {
+          "const": "unverified"
+        },
+        "allowUnverifiedRemoteAudio": {
+          "const": false
+        }
+      },
+      "additionalProperties": true
+    },
+    "artists": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/artist"
+      }
+    },
+    "albums": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/album"
+      }
+    },
+    "tracks": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/track"
+      }
+    },
+    "playlists": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/playlist"
+      }
+    },
+    "genres": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/genre"
+      }
+    },
+    "audioSources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/audioSource"
+      }
+    },
+    "editorial": {
+      "type": "object"
+    },
+    "discussionTopics": {
+      "type": "array"
+    }
+  },
+  "$defs": {
+    "base": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "metadataStatus": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "artist": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/base"
+        },
+        {
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "artworkUrl": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "biography": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "album": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/base"
+        },
+        {
+          "type": "object",
+          "required": [
+            "title",
+            "artistId",
+            "trackIds",
+            "availability",
+            "rightsStatus"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1
+            },
+            "artistId": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "trackIds": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "availability": {
+              "type": "string",
+              "minLength": 1
+            },
+            "rightsStatus": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    },
+    "track": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/base"
+        },
+        {
+          "type": "object",
+          "required": [
+            "title",
+            "artistId",
+            "albumId",
+            "genreIds",
+            "durationMs",
+            "availability",
+            "audio",
+            "rights"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1
+            },
+            "artistId": {
+              "type": "string"
+            },
+            "albumId": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "genreIds": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "durationMs": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "availability": {
+              "type": "string"
+            },
+            "audio": {
+              "type": "object",
+              "required": [
+                "status",
+                "sourceId",
+                "url",
+                "mimeType"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "not-configured",
+                    "ready",
+                    "blocked"
+                  ]
+                },
+                "sourceId": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "url": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "mimeType": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "rights": {
+              "type": "object",
+              "required": [
+                "status",
+                "rightsHolder",
+                "territories",
+                "verifiedAt",
+                "evidenceRef"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "unverified",
+                    "licensed",
+                    "owned",
+                    "public-domain",
+                    "blocked"
+                  ]
+                },
+                "rightsHolder": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "territories": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^(\\*|[A-Z]{2})$"
+                  }
+                },
+                "verifiedAt": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date-time"
+                },
+                "evidenceRef": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "rights": {
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "licensed",
+                      "owned"
+                    ]
+                  }
+                }
+              }
+            },
+            "required": [
+              "rights"
+            ]
+          },
+          "then": {
+            "properties": {
+              "rights": {
+                "required": [
+                  "status",
+                  "rightsHolder",
+                  "territories",
+                  "verifiedAt",
+                  "evidenceRef"
+                ],
+                "properties": {
+                  "evidenceRef": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "verifiedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "territories": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "string",
+                      "pattern": "^(\\*|[A-Z]{2})$"
+                    }
+                  },
+                  "rightsHolder": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "rights": {
+                "properties": {
+                  "status": {
+                    "const": "public-domain"
+                  }
+                }
+              }
+            },
+            "required": [
+              "rights"
+            ]
+          },
+          "then": {
+            "properties": {
+              "rights": {
+                "required": [
+                  "status",
+                  "rightsHolder",
+                  "territories",
+                  "verifiedAt",
+                  "evidenceRef"
+                ],
+                "properties": {
+                  "evidenceRef": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "verifiedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "territories": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "string",
+                      "pattern": "^(\\*|[A-Z]{2})$"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "playlist": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/base"
+        },
+        {
+          "type": "object",
+          "required": [
+            "title",
+            "trackIds",
+            "kind"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1
+            },
+            "trackIds": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "kind": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    },
+    "genre": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/base"
+        },
+        {
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    },
+    "audioSource": {
+      "type": "object",
+      "required": [
+        "id",
+        "status",
+        "url",
+        "mimeType",
+        "allowedHosts"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "status": {
+          "enum": [
+            "active",
+            "inactive"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mimeType": {
+          "type": "string",
+          "pattern": "^audio/[a-z0-9.+-]+$"
+        },
+        "allowedHosts": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

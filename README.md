@@ -1,149 +1,98 @@
-# STARMUSICS — Music, with intention.
+# STARMUSICS v0.9.0 — Consolidated Release
 
-A static, responsive frontend prototype. It implements a premium Apple-inspired glass visual system with white/off-white surfaces, translucent panels, restrained red accents, icon-only desktop navigation rail, full localization (EN/RU/FA + RTL), and a three-mode cinematic player sharing a single HTML audio engine.
+**Music, with intention.** STARMUSICS is a responsive music-discovery, player, and community prototype built around a light Apple-inspired clear-glass visual system. This release consolidates the work completed across the current five-phase product/design roadmap while retaining the earlier catalogue, account, persistence, and audio-rights foundations.
 
-## Run locally
+> **Status:** the interface, local account API, persistent community backend, and automated tests are available. This is not yet a production-ready streaming service: the audio manifest is empty, catalogue metadata remains demo-seeded, email verification/password recovery are not implemented, and deployment hardening and real-browser QA remain required.
 
-Requires Node.js only for the optional smoke tests. The app itself has no build step or runtime dependencies.
+## What is included
 
-```sh
-python3 -m http.server 8080
-```
+### Product/design roadmap — Phases 1–5
 
-Open `http://localhost:8080`.
+1. **Home and navigation:** clear-glass Home hierarchy, desktop icon rail, mobile bottom navigation, language menu, reduced-motion handling.
+2. **Search and discovery:** search-led Explore, category filters, genre browsing, artist and album detail surfaces, explicit catalogue-status messaging.
+3. **Listening experience:** mini/dock, expanded/full-page player, queue reorder/remove/clear, Media Session integration where supported, and three track-card export themes.
+4. **Discussions and profiles:** searchable topics, comments, likes, profiles, activity metrics, achievements, public member views, and responsive community layouts.
+5. **Shared community backend:** SQLite-backed topics and comments, reactions, reports, one-time owner claim, moderator roles, hide/restore actions, role management, audit records, same-origin write checks, and safe local frontend serving.
 
-Run the static regression checks:
+### Earlier technical foundations
 
-```sh
-npm test
-```
+The underlying project also retains its normalized catalogue and catalogue audits, rights-gated audio-source resolver, account registration/login, hashed password storage, persistent SQLite sessions and account/library sync. Earlier files named `PHASE-1-NOTES.md` through `PHASE-8-NOTES.md` describe the original technical foundation plan. The five-phase roadmap above is the later product/design sequence; the numbering is separate.
 
-## Current implementation
+## Quick start — local development
 
-- Responsive home, explore, library, playlists, artists, albums, genres, recently played, profile and discussions views.
-- Five-item mobile bottom navigation alongside desktop navigation: Home, Explore, Artists, Discussions, and Profile. Library and playlist management are accessed from Profile rather than dedicated left-navigation tabs.
-- Light monochrome glass UI; no dark-theme toggle or visual redesign.
-- Player stays hidden until a track is selected. A shared HTML audio engine drives playback state, seeking, volume and progress; sample catalogue entries require a permitted local audio file or a valid audio URL.
-- Client-side search across the sample catalogue.
-- Local-browser liked-track state, recent-play history, playlist creation/deletion, profile display name and biography, and basic achievement progress. Personal playlists support opening a detail view, adding/removing catalogue tracks, and queue-based playback.
-- Discussion topic selection, local comments, selected-topic heading, and reply-count updates for comments stored in this browser.
-- Keyboard controls for progress and volume sliders.
-- Defensive parsing of browser-stored profile, playlist, comment and liked-track data.
-- Node's built-in test runner checks JavaScript syntax, core page structure, unique IDs, localization hooks, detail-sheet wiring and key feature hooks. These are smoke tests, not full browser automation.
+Requirements: **Node.js 22.5 or newer**. The server uses the built-in `node:sqlite` module; no runtime npm dependency installation is required.
 
-## Important limitations
+1. Copy `.env.example` to `.env`.
+2. Generate an owner-claim token with `openssl rand -hex 32` and replace the placeholder value for `STARMUSICS_OWNER_SETUP_TOKEN` in `.env`.
+3. In terminal one, start the API:
 
-This is a **frontend prototype**, not a production-ready multi-user music platform. It has no backend, real authentication, shared database, server-side authorization, secure audio uploads, cross-device sync, moderation system or trusted trophy awarding. Browser storage is user-controlled and must never be treated as trusted data. Comments and profile information are stored only in the current browser and are not shared with other listeners.
+   ```sh
+   npm run start:api
+   ```
 
-No licensed music catalogue is bundled. The player uses the browser audio engine, but tracks need a valid audio source; a local file can be selected for a session. Before enabling uploads or public streaming, implement file validation, rights declarations, moderation, storage controls and server-side authorization. Do not hotlink copyrighted music without permission.
+4. In terminal two, start the safe frontend server:
 
-## Manual verification checklist
+   ```sh
+   npm run start:web
+   ```
 
-- Open the app through the local HTTP server and navigate through each page.
-- Check desktop sidebar and five-item mobile navigation at narrow viewport widths.
-- Confirm the player is hidden on initial load and appears only after selecting a sample track.
-- Like a track, navigate to Library, and verify it remains listed after switching tracks and refreshing.
-- Create a playlist; open it; add a catalogue track; verify the track appears and the Add button changes to Added. Remove a track, then use Play all and confirm the queue advances in playlist order. Refresh and verify playlist contents persist. Delete the playlist and verify it disappears from Library and Profile.
-- Edit the profile display name and biography; verify the saved values persist after refresh.
-- Select discussion topics, add a comment, and verify the heading and local reply counts update.
-- Use arrow keys, Home and End on the player progress and volume sliders.
-- Run `npm test` after changes.
+5. Open **http://127.0.0.1:8080**. Keep using this exact host and port unless you update `PUBLIC_ORIGIN` to match the browser origin.
+6. Create an account and sign in. For the first installation owner, enter the one-time setup token in the owner setup panel. After the owner role is successfully claimed, remove `STARMUSICS_OWNER_SETUP_TOKEN` from the environment and restart the API.
 
-## Localization and discovery detail sheets
+The frontend server binds to `127.0.0.1` by default and serves only the approved UI assets. It deliberately does **not** expose `.env`, database files, source folders, tests, schemas, or project documentation. Do not replace it in this setup with a generic static server pointed at the entire repository while a secret-bearing `.env` file exists.
 
-The header language menu offers English, Russian and Persian, remembers the selected language, and switches the document to RTL for Persian. Core navigation and common interface labels are translated; this is an incremental client-side dictionary, not yet a complete professional localization pass for every generated label, error message and catalogue description. Artist and genre cards open editorial detail sheets with related discovery and selectable tracks. Album cards open album detail sheets. The catalogue and related track data remain sample content rather than a licensed metadata feed.
+### Environment variables
 
-## Production gaps
+- `PUBLIC_ORIGIN`: exact browser origin allowed by the API; default `http://127.0.0.1:8080`.
+- `API_HOST`: API bind address; default `127.0.0.1` for local safety. For deployment, bind only to the private interface required by your reverse proxy/container network.
+- `PORT`: API port; default `8787`.
+- `STARMUSICS_DATA_DIR`: private persistent database directory. Default is `../starmusics-private-data`, outside the project/static root.
+- `STARMUSICS_OWNER_SETUP_TOKEN`: random secret of at least 32 characters, used only for initial owner claim. Remove after the claim.
+- `WEB_HOST` / `WEB_PORT`: safe frontend server bind host and port; default `127.0.0.1:8080`.
 
-A production launch still requires a backend and database, real account ownership, role-based admin permissions, server-validated achievements, audio storage and delivery, moderation/reporting, privacy controls, backups, observability and multi-account security testing. Choose infrastructure only after verifying that it is accessible and commercially suitable for the intended users.
+Keep the database directory backed up and inaccessible to the static frontend. For a real deployment, host the frontend from an asset root containing only public assets and deploy the API behind HTTPS with appropriate operational controls.
 
-## Cinematic glass player update
+## Verification
 
-The player now offers three presentation modes: **Dock**, **Page**, and **Mini**. The selected mode is remembered in this browser. All modes use the same HTML audio engine and queue, with real play/pause, seeking, volume, and playback progress. The player stays hidden until a track is selected.
-
-The current catalogue is illustrative and does not include licensed audio files. Select a track, open the player, and use **Choose audio file** to play a local audio file you have permission to use. Audio selected from your device is temporary for this browser session; it is not uploaded to a server. The mini mode is a floating in-site player, not an operating-system Home Screen widget. A true Home Screen widget requires platform-specific app/widget integration.
-
-The lyrics area includes a sharing action for track-card text and a rights reminder. It intentionally does not fabricate or bundle copyrighted lyrics. Add original or properly licensed lyric text and timestamps before enabling synced lyrics or lyric-card sharing.
-
-
-## Latest interaction refinement
-
-- Removed the Library and Playlists destinations from the left navigation; icon-only glass shortcuts for liked songs, recent listening, albums, and playlists are inside Profile. Playlist creation and editing remain available there.
-- Reworked the floating mini-player so it is fixed on desktop and mobile, with Play/Pause, Return to previous mode, and Expand controls.
-- Reworked full-page playback into an editorial split layout with ambient cover-art lighting, art sheen, a playback-only visualizer, smooth mode transitions, and reduced-motion support.
-- Consolidated duplicate modal handlers and hardened the language menu interaction for pointer, keyboard, and outside-click dismissal. English, Russian, and Persian switches update language and Persian sets RTL direction.
-
-### Navigation/player refinement
-
-- The desktop sidebar no longer shows Library or Playlists destinations. Collection shortcuts are icon-only glass controls in Profile; playlist management remains available in Profile.
-- The top-right profile control is now a pale glass icon rather than a dark blank circle. The language globe remains visible on mobile as well as desktop.
-- Mini-player controls include Return to previous mode, Play/Pause, and Expand. Full-player transitions use the same audio state and queue, with artwork sheen/ambient drift and a playing-state visualizer. Mobile retains an accessible player-mode control.
-- The language switcher persists its choice across navigation and refresh, and Persian sets RTL. This remains a partial localization, not a finished translation of every generated label.
-
-
-## Navigation/player correction
-
-- Library is not a primary sidebar destination; collection shortcuts are inside Profile.
-- Removed the playlist shortcut from the Profile icon hub and removed the standalone Playlists view from the UI.
-- Language selection is icon-only and supports English, Russian, and Persian with RTL for Persian.
-- Player modes: dock, full-page, and mini; the mode control returns from mini to the previous full view.
-- Cinematic motion uses restrained transitions and respects reduced-motion preferences.
-
-The catalogue remains a frontend prototype. Shared accounts/community data and a licensed catalogue require a backend and content rights.
-
-
-## Icon-rail navigation update
-
-The desktop/tablet sidebar now follows the supplied reference: a narrow, icon-only vertical rail with clear glass surfaces, rounded icon tiles, subtle lift transitions, and a red active-state accent. Profile is included in the rail. Accessible labels and titles remain available for screen readers and hover tooltips. On mobile, the existing bottom navigation remains the primary navigation.
-
-
-## Full-page layout correction
-
-The app now fills the full viewport at desktop, tablet, and mobile sizes. The inset rounded outer card, outer margin, decorative background frame, and outer shadow have been removed. The icon-only glass navigation remains inside the full-page layout.
-
-## Delivery summary (this archive)
-
-**What was verified and retained**
-
-- Full-viewport layout (no outer inset card or decorative frame).
-- Narrow icon-only glass navigation rail (Home, Explore, Artists, Albums, Genres, Discussions, Profile) with red active state, tooltips, and accessible names. Library and Playlists removed from primary nav; collections live under Profile.
-- Mobile bottom navigation with five items and safe-area awareness.
-- Working search, language selector (EN / RU / FA) with immediate UI update, localStorage persistence, and full RTL layout for Persian.
-- Shared player state across dock / full-page / mini modes; real `<audio>` element; seek, volume, queue, shuffle/repeat hooks; mini-player restore never traps the user.
-- Home discovery sections, artist/album/genre detail sheets, profile collections, local discussions prototype, liked tracks, history, playlists.
-- Reduced-motion support, keyboard focus, semantic structure.
-- Smoke tests (Node test runner) covering syntax, unique IDs, navigation, player modes, localization hooks, and detail wiring.
-
-**Test results (executed)**
-
-```
-✔ application JavaScript parses successfully
-✔ HTML has unique IDs and its local assets exist
-✔ core views and profile editing controls are present
-✔ discussion and liked-track regressions are covered by implementation hooks
-✔ mobile navigation and light glass styling remain available
-✔ playlist builder supports detail, add/remove, and ordered playback hooks
-✔ cinematic player supports three modes and uses a real audio element
-✔ language menu includes English, Russian and Persian with RTL support hook
-✔ artist, album and genre discovery detail sheets are wired
-✔ mobile retains working language and player-mode controls
-ℹ tests 10  pass 10  fail 0
-```
-
-**Known limitations / remaining work**
-
-- No backend, authentication, shared persistence, or real multi-user discussions. All personal data is browser-local only.
-- Catalogue is sample/illustrative; no licensed audio is bundled. Users must supply a local audio file (or a permitted URL) to hear playback.
-- Localization is a functional client-side dictionary covering core UI strings; not a professional translation of every generated or dynamic label.
-- Lyrics panel is present but does not ship copyrighted timed lyrics.
-- Notifications control is visual only (no real notification system).
-- Achievements are local progress indicators, not server-validated.
-
-**How to run**
+Run the complete automated suite and catalogue/audio audits:
 
 ```sh
-python3 -m http.server 8080
-# open http://localhost:8080
-npm test
+npm run verify
 ```
 
+The verification command regenerates the browser catalogue payload, runs catalogue and audio-rights audits, checks JavaScript syntax and CSS structure, and executes automated tests. The safe frontend server also has tests that verify `.env`, source files, database-adjacent paths, and path traversal are not served.
+
+## Community security model
+
+- Reading topics and visible comments is public.
+- Signing in is required to post comments, react, report content, and view private moderation queues.
+- Only the installation owner can create curated topics or grant/revoke moderator roles.
+- Moderators and the owner can review reports and hide/restore comments.
+- Report payloads omit email addresses; public member payloads expose only display name, bio, community role label, and visible comment count.
+- Comment text is length-limited and inserted/rendered as text; dynamic interface output is escaped.
+- Writes require a same-origin `Origin` header, use JSON request bodies, and are rate-limited in-process.
+- The owner is claimed once via a high-entropy server-configured secret. The API does not infer ownership from an email address.
+- The local frontend server serves an explicit allowlist of public files and refuses source/private paths.
+
+This is a solid local prototype foundation, not a security certification. Before public deployment, add verified email/password recovery, documented administrator recovery, externalized/distributed rate limiting if needed, backups and restore drills, log/monitoring policy, privacy/retention and moderation policy, dependency/runtime update procedures, HTTPS reverse-proxy configuration, and independent security review. The current rate limiter and API are single-process.
+
+## Honest content and audio status
+
+The current catalogue contains demonstration metadata (6 tracks, 12 artists, 4 albums, 5 playlists). Some album tracklists and editorial playlists are intentionally incomplete rather than fabricated. **No demo track is enabled for playback with verified distribution rights.** `data/audio-library.json` is an empty, valid manifest; adding playable tracks requires files the operator has permission to distribute and verifiable rights evidence/territories. The player UI and queue mechanics can be tested, but that does not mean the project ships a licensed music catalogue.
+
+Lyrics are not included in share cards because verified lyric content has not been supplied. Third-party artwork references are prototype imagery and should be replaced or checked for usage rights before launch.
+
+## Current manual QA still required
+
+Automated tests do not replace a real-browser/device pass. Before release beyond local development, manually verify desktop and mobile breakpoints, keyboard-only flows, Persian RTL and Russian labels, dialogs/focus restoration, actual account cookie behavior on the chosen deployment origin, moderation workflows with multiple accounts, and supported browser audio controls. The browser-based screenshot inspection was not completed in the development environment.
+
+## Important files
+
+- `index.html`, `styles.css`, `app.js`, `design/`: frontend and cumulative design system.
+- `data/catalog.json`: canonical demo catalogue; run `npm run build:catalog` after intentional edits.
+- `data/audio-library.json`, `public/media/audio/README.md`: rights-cleared audio-library boundary and workflow.
+- `server/api.mjs`, `server/start.mjs`: account/community API.
+- `scripts/start-web.mjs`: safe local frontend server.
+- `tests/`: API, catalogue, rights, player, design, community authorization, and safe-static-server tests.
+- `design/PHASE-1-HOME-NAVIGATION.md` through `design/PHASE-5-COMMUNITY-BACKEND.md`: current product/design roadmap specifications.
+- `RELEASE-NOTES.md`: this consolidated release record.
